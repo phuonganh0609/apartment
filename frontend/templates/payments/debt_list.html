@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% load humanize %}{% block content %}<div class="metric standalone"><span>Tổng công nợ hiện tại</span><strong>{{ total_debt|intcomma }} <small>đ</small></strong><p>Các khoản tiền thuê và phí dịch vụ chưa thanh toán.</p></div><section class="panel">{% include 'reports/payment_table.html' %}{% include 'generic/pagination.html' %}</section>{% endblock %}

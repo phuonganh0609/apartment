@@ -1,0 +1,7 @@
+Django>=5.2.12,<5.3
+python-dotenv>=1.1,<2
+httpx>=0.28,<0.29
+pypdf>=6,<7
+python-docx>=1.2,<2
+whitenoise>=6.9,<7
+waitress>=3,<4

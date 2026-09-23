@@ -1,0 +1,1 @@
+{% extends 'generic/detail.html' %}{% block related_content %}<section class="panel detail-panel"><a class="btn btn-primary" href="{% url 'ai_assistant:notification' object.contract_id %}?payment={{ object.pk }}">✧ Soạn thông báo thanh toán</a>{% if object.is_overdue %}<p class="error-text">Khoản thu đã quá hạn thanh toán.</p>{% endif %}</section>{% endblock %}
