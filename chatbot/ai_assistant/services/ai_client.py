@@ -109,6 +109,11 @@ def generate_json(system, payload):
             with client.stream(
                 "POST", url, headers=headers, json=data
             ) as response:
+                if response.status_code in (502, 503, 504):
+                    raise AIError(
+                        "Dịch vụ AI đang quá tải hoặc tạm thời gián đoạn. "
+                        "Vui lòng thử lại sau hoặc đổi model."
+                    )
                 if response.status_code == 429:
                     raise AIError(
                         (
@@ -157,6 +162,11 @@ def generate_json(system, payload):
         return parsed_result
     except httpx.TimeoutException as exc:
         raise AIError("AI phản hồi quá lâu. Vui lòng thử lại sau.") from exc
+    except httpx.ConnectError as exc:
+        raise AIError(
+            "Không kết nối được tới máy chủ AI. "
+            "Kiểm tra mạng, proxy hoặc tường lửa."
+        ) from exc
     except httpx.HTTPError as exc:
         raise AIError(
             (

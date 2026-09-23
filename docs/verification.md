@@ -33,3 +33,11 @@ Kết quả trên xác nhận bản demo cục bộ và các luồng trong bộ 
 - Đã khởi tạo Git cục bộ; commit đồng bộ là mốc mới, không phải lịch sử phát triển trước đây.
 
 Không coi tests mock, tài liệu vừa bổ sung hay bộ chạy thí nghiệm là minh chứng chất lượng AI thật.
+
+## Kiểm tra kết nối thật sau cấu hình Gemini — 23/09/2026
+
+- Model gemini-3.8-flash trả HTTP 503 quá tải trong lần chẩn đoán.
+- Đổi sang gemini-3.5-flash-lite; check_ai_connection.py: PASS.
+- Thử ba lời gọi thật bằng dữ liệu hư cấu: tóm tắt đủ 5 mục, thông báo có subject/body, chatbot trả câu trả lời và nguồn: PASS. Nguồn chatbot trong lần này được cấp bằng fixture, không phải kiểm thử truy xuất RAG thực tế.
+- Đã khởi động lại Django để nạp .env mới.
+- Đây là smoke test, chưa thay thế ba vòng đánh giá chất lượng prompt và kiểm chứng của nhóm. Các ghi nhận thiếu cấu hình phía trên là lịch sử trước khi người dùng điền khóa/model.

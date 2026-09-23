@@ -1,0 +1,62 @@
+[
+  {
+    "title": "[TEST] Đăng ký gửi xe",
+    "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Khách thuê đăng ký gửi xe tại quầy lễ tân, cung cấp mã căn hộ và biển số xe. Phí gửi xe máy là 120.000 đồng/xe/tháng. Phí gửi ô tô là 1.200.000 đồng/xe/tháng. Mỗi căn hộ được đăng ký tối đa 2 xe máy và 1 ô tô, tùy chỗ trống.",
+    "question": "Phí gửi xe máy mỗi tháng là bao nhiêu?",
+    "expected": "120.000 đồng/xe/tháng."
+  },
+  {
+    "title": "[TEST] Giờ mở cửa hồ bơi",
+    "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Hồ bơi mở cửa từ 06:00 đến 21:00 hằng ngày. Hồ bơi đóng cửa bảo dưỡng vào sáng thứ Hai từ 06:00 đến 10:00. Trẻ em dưới 12 tuổi phải có người lớn đi cùng. Cư dân không mang đồ ăn hoặc chai thủy tinh vào hồ bơi.",
+    "question": "Hồ bơi có mở sáng thứ Hai không?",
+    "expected": "Đóng từ 06:00 đến 10:00 để bảo dưỡng; mở lại từ 10:00."
+  },
+  {
+    "title": "[TEST] Sử dụng phòng tập gym",
+    "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Phòng tập gym mở cửa từ 05:30 đến 22:00 hằng ngày. Cư dân đã đăng ký được sử dụng phòng tập miễn phí. Khách thuê mang giày thể thao, lau thiết bị sau khi tập và không đưa khách ngoài vào phòng tập.",
+    "question": "Phòng tập gym mở cửa lúc mấy giờ?",
+    "expected": "05:30 đến 22:00 hằng ngày."
+  },
+  {
+    "title": "[TEST] Thu gom và phân loại rác",
+    "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Cư dân phân loại rác thành rác tái chế và rác sinh hoạt. Rác sinh hoạt phải buộc kín túi trước khi bỏ vào phòng rác từng tầng. Giờ bỏ rác từ 06:00 đến 09:00 và từ 18:00 đến 21:00. Không để rác ở hành lang hoặc cầu thang.",
+    "question": "Tôi có thể bỏ rác vào giờ nào?",
+    "expected": "06:00–09:00 và 18:00–21:00."
+  },
+  {
+    "title": "[TEST] Khách đến thăm và ở qua đêm",
+    "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Khách đến thăm đăng ký tại lễ tân và được cư dân xác nhận trước khi lên căn hộ. Khách ở qua đêm phải được người thuê thông báo cho ban quản lý trước 22:00. Không cho khách mượn thẻ cư dân để tự do ra vào.",
+    "question": "Khách ở qua đêm phải thông báo trước mấy giờ?",
+    "expected": "Trước 22:00 cho ban quản lý."
+  },
+  {
+    "title": "[TEST] Tiếp nhận yêu cầu sửa chữa",
+    "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Khách thuê báo yêu cầu sửa chữa cho lễ tân hoặc nhân viên quản lý, nêu mã căn hộ, thiết bị hỏng và mô tả sự cố. Bộ phận bảo trì tiếp nhận yêu cầu thông thường từ 08:00 đến 17:00, thứ Hai đến thứ Bảy. Thời gian phản hồi ban đầu là trong 24 giờ làm việc; đây không phải cam kết hoàn thành sửa chữa.",
+    "question": "Bảo trì phản hồi yêu cầu sửa chữa trong bao lâu?",
+    "expected": "Trong 24 giờ làm việc; không phải thời hạn hoàn thành sửa chữa."
+  },
+  {
+    "title": "[TEST] Cấp lại thẻ cư dân",
+    "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Khi mất thẻ cư dân, khách thuê báo ngay cho lễ tân để khóa thẻ cũ. Phí cấp lại thẻ là 100.000 đồng/thẻ. Thẻ mới được cấp trong 2 ngày làm việc sau khi xác nhận thông tin người thuê.",
+    "question": "Mất thẻ cư dân thì phí cấp lại là bao nhiêu?",
+    "expected": "100.000 đồng/thẻ; báo lễ tân khóa thẻ cũ."
+  },
+  {
+    "title": "[TEST] Đăng ký chuyển đồ và thang máy",
+    "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Khách thuê đăng ký chuyển đồ với ban quản lý trước ít nhất 24 giờ. Giờ chuyển đồ từ 09:00 đến 11:00 và từ 14:00 đến 16:00, thứ Hai đến thứ Bảy. Dùng thang máy hàng theo lịch được xác nhận; không chặn lối thoát hiểm bằng đồ đạc.",
+    "question": "Chuyển đồ cần đăng ký trước bao lâu?",
+    "expected": "Ít nhất 24 giờ."
+  },
+  {
+    "title": "[TEST] Tiếp nhận bưu phẩm",
+    "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Lễ tân nhận bưu phẩm từ 08:00 đến 20:00. Cư dân nhận bưu phẩm trong vòng 48 giờ sau khi được thông báo và xuất trình thẻ cư dân. Lễ tân không nhận hộ hàng thu tiền COD, hàng đông lạnh hoặc hàng dễ hư hỏng.",
+    "question": "Lễ tân có nhận hộ hàng COD không?",
+    "expected": "Không nhận hộ hàng COD."
+  },
+  {
+    "title": "[TEST] Đặt phòng sinh hoạt cộng đồng",
+    "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Phòng sinh hoạt cộng đồng cần đặt trước ít nhất 2 ngày. Mỗi căn hộ được đặt tối đa 2 giờ mỗi lần, trong khoảng 08:00 đến 21:00. Sức chứa tối đa 20 người. Sau khi sử dụng phải dọn vệ sinh và trả lại bàn ghế đúng vị trí.",
+    "question": "Phòng sinh hoạt cộng đồng tối đa bao nhiêu người?",
+    "expected": "20 người."
+  }
+]

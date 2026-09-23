@@ -201,6 +201,10 @@ class GeminiTransportTests(DomainTestCase):
         ):
             return generate_json("system instructions", {"question": "test"})
 
+    def test_overloaded_model_has_actionable_error(self):
+        with self.assertRaisesMessage(AIError, "quá tải"):
+            self.transport(lambda request: httpx.Response(503))
+
     def test_native_request_and_split_response(self):
         def handler(request):
             self.assertEqual(
