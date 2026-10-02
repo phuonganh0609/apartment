@@ -1,5 +1,5 @@
 {% load static %}<!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{{ title|default:'Nestora' }} · Nestora</title><link rel="stylesheet" href="{% static 'css/style.css' %}"><link rel="stylesheet" href="{% static 'css/dashboard.css' %}"></head>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{{ title|default:'Nestora' }} · Nestora</title><link rel="icon" type="image/jpeg" href="{% static 'images/nestora-logo.jpg' %}"><link rel="stylesheet" href="{% static 'css/style.css' %}"><link rel="stylesheet" href="{% static 'css/dashboard.css' %}"></head>
 <body><a class="skip-link" href="#main">Đến nội dung</a>
 {% if user.is_authenticated %}{% include 'sidebar.html' %}<div class="workspace">{% include 'navbar.html' %}<main id="main" class="content"><div class="page-heading"><div><p class="eyebrow">KHÔNG GIAN QUẢN LÝ CỦA BẠN</p><h1>{{ title }}</h1></div>{% block heading_action %}{% endblock %}</div>{% for message in messages %}<div class="notice {{ message.tags }}" role="status">{{ message }}</div>{% endfor %}{% block content %}{% endblock %}<footer>NESTORA <span>Hệ thống quản lý thuê căn hộ · Nhóm 02 · CNTT K23K</span></footer></main></div>
 {% else %}{% block public_content %}{% endblock %}{% endif %}
