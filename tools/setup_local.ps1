@@ -6,7 +6,7 @@ if (-not (Test-Path -LiteralPath '.venv/Scripts/python.exe')) {
 }
 & '.venv/Scripts/python.exe' -m ensurepip --upgrade
 if ($LASTEXITCODE -ne 0) { throw 'Cannot bootstrap pip.' }
-& '.venv/Scripts/python.exe' -m pip install -r requirements.txt
+& '.venv/Scripts/python.exe' -m pip install -r requirements/base.txt
 if ($LASTEXITCODE -ne 0) { throw 'Cannot install requirements.' }
 & '.venv/Scripts/python.exe' -X utf8 tools/scaffold_support.py
 if ($LASTEXITCODE -ne 0) { throw 'Cannot prepare local configuration.' }

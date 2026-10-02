@@ -1,6 +1,6 @@
 # Đối chiếu báo cáo và quyết định triển khai
 
-Nguồn hiện hành: ContextProject.txt (kiến trúc và công nghệ), informember.md (nghiệp vụ và tiêu chí chấm), project.md (thông tin nhóm). Các quyết định dưới đây cụ thể hóa những điểm tài liệu chưa quy định. Giữ cấu trúc sáu thư mục theo yêu cầu trực tiếp của người dùng.
+Nguồn hiện hành: requirements/ContextProject.txt (kiến trúc và công nghệ), requirements/informember.md (nghiệp vụ và tiêu chí chấm), requirements/project.md (thông tin nhóm). Các quyết định dưới đây cụ thể hóa những điểm tài liệu chưa quy định. Giữ cấu trúc sáu thư mục theo yêu cầu trực tiếp của người dùng.
 
 | Lớp Word | Model Django | App |
 |---|---|---|
@@ -30,7 +30,7 @@ Nguồn hiện hành: ContextProject.txt (kiến trúc và công nghệ), inform
 7. Doanh thu bằng tổng Payment đã thanh toán trong tháng dựa trên paid_date; công nợ bằng tổng Payment pending. Tiền cọc không được cộng vào doanh thu. Thanh lý không xóa các khoản chưa thu.
 8. Quản lý có quyền quản trị tài khoản/tài liệu. Nhân viên và Kế toán xem quy định và chatbot. Quyền tài chính không cấp cho Nhân viên. Dashboard của Nhân viên là danh sách việc cần làm, không phải báo cáo tài chính/công suất.
 9. Các ngày/số tiền được kiểm tra cả tại form/model; CSDL có constraint cho ngày, tiền, liên kết tiện ích và tính nhất quán trạng thái thanh toán. Dữ liệu có hợp đồng tham chiếu dùng PROTECT khi xóa.
-10. AI mặc định dùng Google Gemini API theo ContextProject.txt; OpenAI-compatible và Ollama là tùy chọn. Không ghi lại prompt chứa dữ liệu khách thuê trong log. Prompt hệ thống, services và xử lý lỗi tách khỏi views. Chưa có kết quả gọi model thật khi chưa cấu hình khóa/model.
+10. AI mặc định dùng Google Gemini API theo requirements/ContextProject.txt; OpenAI-compatible và Ollama là tùy chọn. Không ghi lại prompt chứa dữ liệu khách thuê trong log. Prompt hệ thống, services và xử lý lỗi tách khỏi views. Chưa có kết quả gọi model thật khi chưa cấu hình khóa/model.
 11. RAG từ khóa bỏ dấu, đoạn 1.300 ký tự, bước 1.000, tối đa 4 nguồn; chỉ dùng Regulation đang áp dụng. Trả thiếu thông tin nếu không có nguồn, kiểm tra ID trích dẫn từ AI. Kiểm tra ID nguồn không tự chứng minh câu trả lời hoàn toàn chính xác; người dùng đối chiếu văn bản.
 12. Kiểm thử concurrency thực tế PostgreSQL, triển khai production và đánh giá chất lượng model cần môi trường/dịch vụ tương ứng; không thay thế bằng kết quả mock.
 

@@ -1,6 +1,6 @@
 # Phát triển và quản lý phiên bản
 
-Cài công cụ: `.venv/Scripts/python.exe -m pip install -r requirements-dev.txt`.
+Cài công cụ: `.venv/Scripts/python.exe -m pip install -r requirements/dev.txt`.
 Định dạng: `.venv/Scripts/python.exe -m black backend chatbot models RAG tools`.
 Kiểm tra style: `.venv/Scripts/python.exe -m pycodestyle backend chatbot models RAG tools`. Bỏ E203/W503 để dùng cách định dạng slice và xuống dòng trước toán tử của Black; giới hạn dòng vẫn là 79 ký tự.
 

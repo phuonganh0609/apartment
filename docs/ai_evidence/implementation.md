@@ -27,4 +27,4 @@ Xây dựng hệ thống Django quản lý thuê căn hộ có tích hợp AI th
 
 ## Cập nhật 23/09/2026
 
-Lựa chọn OpenAI ở trên là lịch sử bản ban đầu. Theo ContextProject.txt mới bổ sung, cấu hình hiện hành chuyển sang Gemini. Xem synchronization.md để biết thay đổi và giới hạn xác minh.
+Lựa chọn OpenAI ở trên là lịch sử bản ban đầu. Theo ../requirements/ContextProject.txt mới bổ sung, cấu hình hiện hành chuyển sang Gemini. Xem synchronization.md để biết thay đổi và giới hạn xác minh.

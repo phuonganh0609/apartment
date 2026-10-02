@@ -2,7 +2,7 @@
 
 ## Yêu cầu thực tế
 
-Người dùng bổ sung ContextProject.txt, project.md, informember.md, yêu cầu kiểm tra độ đồng bộ rồi yêu cầu: “đồng bộ lại theo 3 file tôi mới cho vào”.
+Người dùng bổ sung ../requirements/ContextProject.txt, ../requirements/project.md, ../requirements/informember.md, yêu cầu kiểm tra độ đồng bộ rồi yêu cầu: “đồng bộ lại theo 3 file tôi mới cho vào”.
 
 ## Phân tích và thay đổi do AI hỗ trợ
 

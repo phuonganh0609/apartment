@@ -1,6 +1,6 @@
 # Nestora — Hệ thống quản lý thuê căn hộ có tích hợp AI
 
-Ứng dụng web Django cho Nhóm 02, lớp CNTT K23K, Khoa Công nghệ thông tin, Trường Đại học Công nghệ thông tin và Truyền thông. Nguyễn Phương Anh (Trưởng nhóm), Lừu Thị Huệ (Phó nhóm). Yêu cầu được đối chiếu với ContextProject.txt, project.md và informember.md. Giao diện tiếng Việt phục vụ Quản lý, Nhân viên và Kế toán.
+Ứng dụng web Django cho Nhóm 02, lớp CNTT K23K, Khoa Công nghệ thông tin, Trường Đại học Công nghệ thông tin và Truyền thông. Nguyễn Phương Anh (Trưởng nhóm), Lừu Thị Huệ (Phó nhóm). Yêu cầu được đối chiếu với docs/requirements/ContextProject.txt, docs/requirements/project.md và docs/requirements/informember.md. Giao diện tiếng Việt phục vụ Quản lý, Nhân viên và Kế toán.
 
 ## Chức năng
 
@@ -29,6 +29,8 @@ models/          12 model nghiệp vụ, chia theo accounts/buildings/...
 RAG/             Tìm kiếm từ khóa, chia đoạn và truy xuất quy định
 
 docs/            Tài liệu thiết kế, sơ đồ và hướng dẫn kiểm thử
+docs/requirements/ Ba tài liệu yêu cầu đầu vào và thông tin nhóm
+requirements/    base.txt (thư viện chạy), dev.txt (công cụ phát triển)
 tools/           Script cài đặt, kiểm tra và chuẩn bị tài nguyên
 manage.py        Điểm khởi chạy Django, giữ nguyên lệnh sử dụng
 project_paths.py Thiết lập đường dẫn import backend và chatbot
@@ -63,7 +65,7 @@ Mở [ứng dụng tại localhost](http://127.0.0.1:8000). Dừng server bằng
 
 ```powershell
 python -m venv .venv
-.venv/Scripts/python.exe -m pip install -r requirements.txt
+.venv/Scripts/python.exe -m pip install -r requirements/base.txt
 .venv/Scripts/python.exe -X utf8 tools/scaffold_support.py
 .venv/Scripts/python.exe -X utf8 tools/vendor_bootstrap.py
 .venv/Scripts/python.exe manage.py makemigrations

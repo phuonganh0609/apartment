@@ -1,12 +1,12 @@
 # Đối chiếu ba tài liệu nguồn
 
-Nguồn: ../ContextProject.txt, ../informember.md, ../project.md. Ngày đồng bộ: 23/09/2026.
+Nguồn: requirements/ContextProject.txt, requirements/informember.md, requirements/project.md. Ngày đồng bộ: 23/09/2026.
 Giữ nguyên ba tài liệu đầu vào. Yêu cầu trực tiếp gom sáu thư mục được ưu tiên; Django vẫn chia app và giữ ORM/migrations.
 
 | Nhóm yêu cầu | Vị trí triển khai/minh chứng | Trạng thái |
 |---|---|---|
-| Thông tin nhóm/trường/khoa | README, technical_report.md | Đồng bộ project.md |
-| Django, HTML/CSS/JS, Bootstrap, SQLite | backend, frontend, requirements.txt | Có; PostgreSQL là tùy chọn chưa thử thực tế |
+| Thông tin nhóm/trường/khoa | README, technical_report.md | Đồng bộ requirements/project.md |
+| Django, HTML/CSS/JS, Bootstrap, SQLite | backend, frontend, requirements/base.txt | Có; PostgreSQL là tùy chọn chưa thử thực tế |
 | Google Gemini API | chatbot/ai_assistant/services/ai_client.py; .env.example | Có adapter và test mock; cần GEMINI_API_KEY và AI_MODEL để chạy thật |
 | Vai trò/xác thực/CSRF | backend/accounts, backend/config/settings.py | Có; tests test_auth/test_pages |
 | Danh mục căn/tòa/tiện ích, khách/liên hệ | backend/buildings, backend/tenants, models | Có CRUD/tìm kiếm và ràng buộc |
