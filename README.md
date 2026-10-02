@@ -2,6 +2,12 @@
 
 Ứng dụng web Django cho Nhóm 02, lớp CNTT K23K, Khoa Công nghệ thông tin, Trường Đại học Công nghệ thông tin và Truyền thông. Nguyễn Phương Anh (Trưởng nhóm), Lừu Thị Huệ (Phó nhóm). Yêu cầu được đối chiếu với docs/requirements/ContextProject.txt, docs/requirements/project.md và docs/requirements/informember.md. Giao diện tiếng Việt phục vụ Quản lý, Nhân viên và Kế toán.
 
+## Giao diện web
+
+Màn hình tổng quan Nestora dành cho Quản lý, hiển thị số căn hộ, doanh thu, công nợ, bảo trì, công suất thuê và trợ lý AI. Ảnh sử dụng dữ liệu demo.
+
+![Giao diện tổng quan quản lý căn hộ Nestora](docs/screenshots/nestora-dashboard.png)
+
 ## Chức năng
 
 - Đăng nhập/đăng xuất; quản lý tài khoản, khóa tài khoản, phân quyền tại backend.
