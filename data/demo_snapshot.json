@@ -1,0 +1,1693 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$efuOkqvQa3Zzqv1qau3EQF$G6mmQzVM6uEwPfZXiLV3W1DGWrExxtwi0EmddgBXh24=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "quanly",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-09-08T08:18:14.971Z",
+      "full_name": "Quản lý Demo",
+      "role": "manager",
+      "can_edit_deposit": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$fKchw80x9n9R8ILpijUtSq$es/bjpPWun6Z3FtU5i2k5v4c6Oa7yE9mIxKEqIdnJeM=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "nhanvien",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-09-08T08:18:15.168Z",
+      "full_name": "Nhân viên Demo",
+      "role": "staff",
+      "can_edit_deposit": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$EUh8IN3HaqEnAIkap3ZERX$tmswXDhOOAmXgMNCygFbxZveyD+9MT9h8HAU22LE8bg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "ketoan",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-09-08T08:18:15.358Z",
+      "full_name": "Kế toán Demo",
+      "role": "accountant",
+      "can_edit_deposit": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "buildings.building",
+    "pk": 1,
+    "fields": {
+      "name": "An Cư Riverside",
+      "address": "12 đường Ven Sông, Thái Nguyên (dữ liệu demo)",
+      "description": "Tòa nhà minh họa phục vụ học tập.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "buildings.building",
+    "pk": 2,
+    "fields": {
+      "name": "An Cư Garden",
+      "address": "28 đường Cây Xanh, Thái Nguyên (dữ liệu demo)",
+      "description": "Tòa nhà minh họa phục vụ học tập.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "buildings.amenity",
+    "pk": 1,
+    "fields": {
+      "name": "Điều hòa",
+      "description": "",
+      "is_active": true
+    }
+  },
+  {
+    "model": "buildings.amenity",
+    "pk": 2,
+    "fields": {
+      "name": "Bình nóng lạnh",
+      "description": "",
+      "is_active": true
+    }
+  },
+  {
+    "model": "buildings.amenity",
+    "pk": 3,
+    "fields": {
+      "name": "Tủ lạnh",
+      "description": "",
+      "is_active": true
+    }
+  },
+  {
+    "model": "buildings.amenity",
+    "pk": 4,
+    "fields": {
+      "name": "Máy giặt",
+      "description": "",
+      "is_active": true
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 1,
+    "fields": {
+      "building": 1,
+      "code": "R101",
+      "floor": 1,
+      "area": "35.00",
+      "rent": "4500000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 2,
+    "fields": {
+      "building": 1,
+      "code": "R102",
+      "floor": 2,
+      "area": "38.00",
+      "rent": "4750000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 3,
+    "fields": {
+      "building": 1,
+      "code": "R103",
+      "floor": 3,
+      "area": "41.00",
+      "rent": "5000000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 4,
+    "fields": {
+      "building": 1,
+      "code": "R104",
+      "floor": 4,
+      "area": "44.00",
+      "rent": "5250000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 5,
+    "fields": {
+      "building": 1,
+      "code": "R105",
+      "floor": 1,
+      "area": "47.00",
+      "rent": "5500000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 6,
+    "fields": {
+      "building": 1,
+      "code": "R106",
+      "floor": 2,
+      "area": "50.00",
+      "rent": "5750000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 7,
+    "fields": {
+      "building": 1,
+      "code": "R107",
+      "floor": 3,
+      "area": "53.00",
+      "rent": "6000000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 8,
+    "fields": {
+      "building": 1,
+      "code": "R108",
+      "floor": 4,
+      "area": "56.00",
+      "rent": "6250000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 9,
+    "fields": {
+      "building": 2,
+      "code": "G101",
+      "floor": 1,
+      "area": "59.00",
+      "rent": "6500000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 10,
+    "fields": {
+      "building": 2,
+      "code": "G102",
+      "floor": 2,
+      "area": "62.00",
+      "rent": "6750000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 11,
+    "fields": {
+      "building": 2,
+      "code": "G103",
+      "floor": 3,
+      "area": "65.00",
+      "rent": "7000000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 12,
+    "fields": {
+      "building": 2,
+      "code": "G104",
+      "floor": 4,
+      "area": "68.00",
+      "rent": "7250000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 13,
+    "fields": {
+      "building": 2,
+      "code": "G105",
+      "floor": 1,
+      "area": "71.00",
+      "rent": "7500000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 14,
+    "fields": {
+      "building": 2,
+      "code": "G106",
+      "floor": 2,
+      "area": "74.00",
+      "rent": "7750000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 15,
+    "fields": {
+      "building": 2,
+      "code": "G107",
+      "floor": 3,
+      "area": "77.00",
+      "rent": "8000000",
+      "status": "available"
+    }
+  },
+  {
+    "model": "buildings.apartment",
+    "pk": 16,
+    "fields": {
+      "building": 2,
+      "code": "G108",
+      "floor": 4,
+      "area": "80.00",
+      "rent": "8250000",
+      "status": "maintenance"
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 1,
+    "fields": {
+      "apartment": 1,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 2,
+    "fields": {
+      "apartment": 1,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 3,
+    "fields": {
+      "apartment": 2,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 4,
+    "fields": {
+      "apartment": 2,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 5,
+    "fields": {
+      "apartment": 2,
+      "amenity": 3,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 6,
+    "fields": {
+      "apartment": 3,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 7,
+    "fields": {
+      "apartment": 3,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 8,
+    "fields": {
+      "apartment": 3,
+      "amenity": 3,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 9,
+    "fields": {
+      "apartment": 3,
+      "amenity": 4,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 10,
+    "fields": {
+      "apartment": 4,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 11,
+    "fields": {
+      "apartment": 4,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 12,
+    "fields": {
+      "apartment": 5,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 13,
+    "fields": {
+      "apartment": 5,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 14,
+    "fields": {
+      "apartment": 5,
+      "amenity": 3,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 15,
+    "fields": {
+      "apartment": 6,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 16,
+    "fields": {
+      "apartment": 6,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 17,
+    "fields": {
+      "apartment": 6,
+      "amenity": 3,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 18,
+    "fields": {
+      "apartment": 6,
+      "amenity": 4,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 19,
+    "fields": {
+      "apartment": 7,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 20,
+    "fields": {
+      "apartment": 7,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 21,
+    "fields": {
+      "apartment": 8,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 22,
+    "fields": {
+      "apartment": 8,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 23,
+    "fields": {
+      "apartment": 8,
+      "amenity": 3,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 24,
+    "fields": {
+      "apartment": 9,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 25,
+    "fields": {
+      "apartment": 9,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 26,
+    "fields": {
+      "apartment": 9,
+      "amenity": 3,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 27,
+    "fields": {
+      "apartment": 9,
+      "amenity": 4,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 28,
+    "fields": {
+      "apartment": 10,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 29,
+    "fields": {
+      "apartment": 10,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 30,
+    "fields": {
+      "apartment": 11,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 31,
+    "fields": {
+      "apartment": 11,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 32,
+    "fields": {
+      "apartment": 11,
+      "amenity": 3,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 33,
+    "fields": {
+      "apartment": 12,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 34,
+    "fields": {
+      "apartment": 12,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 35,
+    "fields": {
+      "apartment": 12,
+      "amenity": 3,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 36,
+    "fields": {
+      "apartment": 12,
+      "amenity": 4,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 37,
+    "fields": {
+      "apartment": 13,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 38,
+    "fields": {
+      "apartment": 13,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 39,
+    "fields": {
+      "apartment": 14,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 40,
+    "fields": {
+      "apartment": 14,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 41,
+    "fields": {
+      "apartment": 14,
+      "amenity": 3,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 42,
+    "fields": {
+      "apartment": 15,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 43,
+    "fields": {
+      "apartment": 15,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 44,
+    "fields": {
+      "apartment": 15,
+      "amenity": 3,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 45,
+    "fields": {
+      "apartment": 15,
+      "amenity": 4,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 46,
+    "fields": {
+      "apartment": 16,
+      "amenity": 1,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "buildings.apartmentamenity",
+    "pk": 47,
+    "fields": {
+      "apartment": 16,
+      "amenity": 2,
+      "quantity": 1,
+      "notes": ""
+    }
+  },
+  {
+    "model": "tenants.tenant",
+    "pk": 1,
+    "fields": {
+      "full_name": "Minh An (Demo)",
+      "phone": "0900000000",
+      "email": "tenant0@example.com",
+      "identity_number": "000000000000",
+      "address": "Địa chỉ minh họa, không phải thông tin người thật"
+    }
+  },
+  {
+    "model": "tenants.tenant",
+    "pk": 2,
+    "fields": {
+      "full_name": "Thu Hà (Demo)",
+      "phone": "0900000001",
+      "email": "tenant1@example.com",
+      "identity_number": "000000000001",
+      "address": "Địa chỉ minh họa, không phải thông tin người thật"
+    }
+  },
+  {
+    "model": "tenants.tenant",
+    "pk": 3,
+    "fields": {
+      "full_name": "Hoàng Nam (Demo)",
+      "phone": "0900000002",
+      "email": "tenant2@example.com",
+      "identity_number": "000000000002",
+      "address": "Địa chỉ minh họa, không phải thông tin người thật"
+    }
+  },
+  {
+    "model": "tenants.tenant",
+    "pk": 4,
+    "fields": {
+      "full_name": "Mai Linh (Demo)",
+      "phone": "0900000003",
+      "email": "tenant3@example.com",
+      "identity_number": "000000000003",
+      "address": "Địa chỉ minh họa, không phải thông tin người thật"
+    }
+  },
+  {
+    "model": "tenants.tenant",
+    "pk": 5,
+    "fields": {
+      "full_name": "Đức Huy (Demo)",
+      "phone": "0900000004",
+      "email": "tenant4@example.com",
+      "identity_number": "000000000004",
+      "address": "Địa chỉ minh họa, không phải thông tin người thật"
+    }
+  },
+  {
+    "model": "tenants.tenant",
+    "pk": 6,
+    "fields": {
+      "full_name": "Ngọc Anh (Demo)",
+      "phone": "0900000005",
+      "email": "tenant5@example.com",
+      "identity_number": "000000000005",
+      "address": "Địa chỉ minh họa, không phải thông tin người thật"
+    }
+  },
+  {
+    "model": "tenants.tenant",
+    "pk": 7,
+    "fields": {
+      "full_name": "Quang Minh (Demo)",
+      "phone": "0900000006",
+      "email": "tenant6@example.com",
+      "identity_number": "000000000006",
+      "address": "Địa chỉ minh họa, không phải thông tin người thật"
+    }
+  },
+  {
+    "model": "tenants.tenant",
+    "pk": 8,
+    "fields": {
+      "full_name": "Phương Thảo (Demo)",
+      "phone": "0900000007",
+      "email": "tenant7@example.com",
+      "identity_number": "000000000007",
+      "address": "Địa chỉ minh họa, không phải thông tin người thật"
+    }
+  },
+  {
+    "model": "tenants.tenant",
+    "pk": 9,
+    "fields": {
+      "full_name": "Hải Đăng (Demo)",
+      "phone": "0900000008",
+      "email": "tenant8@example.com",
+      "identity_number": "000000000008",
+      "address": "Địa chỉ minh họa, không phải thông tin người thật"
+    }
+  },
+  {
+    "model": "tenants.tenant",
+    "pk": 10,
+    "fields": {
+      "full_name": "Bảo Ngọc (Demo)",
+      "phone": "0900000009",
+      "email": "tenant9@example.com",
+      "identity_number": "000000000009",
+      "address": "Địa chỉ minh họa, không phải thông tin người thật"
+    }
+  },
+  {
+    "model": "tenants.contact",
+    "pk": 1,
+    "fields": {
+      "tenant": 1,
+      "full_name": "Người liên hệ Demo",
+      "relationship": "Người thân",
+      "phone": "0900000099",
+      "email": "contact@example.com"
+    }
+  },
+  {
+    "model": "tenants.contact",
+    "pk": 2,
+    "fields": {
+      "tenant": 2,
+      "full_name": "Người liên hệ Demo",
+      "relationship": "Người thân",
+      "phone": "0900000099",
+      "email": "contact@example.com"
+    }
+  },
+  {
+    "model": "tenants.contact",
+    "pk": 3,
+    "fields": {
+      "tenant": 3,
+      "full_name": "Người liên hệ Demo",
+      "relationship": "Người thân",
+      "phone": "0900000099",
+      "email": "contact@example.com"
+    }
+  },
+  {
+    "model": "tenants.contact",
+    "pk": 4,
+    "fields": {
+      "tenant": 4,
+      "full_name": "Người liên hệ Demo",
+      "relationship": "Người thân",
+      "phone": "0900000099",
+      "email": "contact@example.com"
+    }
+  },
+  {
+    "model": "tenants.contact",
+    "pk": 5,
+    "fields": {
+      "tenant": 5,
+      "full_name": "Người liên hệ Demo",
+      "relationship": "Người thân",
+      "phone": "0900000099",
+      "email": "contact@example.com"
+    }
+  },
+  {
+    "model": "tenants.contact",
+    "pk": 6,
+    "fields": {
+      "tenant": 6,
+      "full_name": "Người liên hệ Demo",
+      "relationship": "Người thân",
+      "phone": "0900000099",
+      "email": "contact@example.com"
+    }
+  },
+  {
+    "model": "tenants.contact",
+    "pk": 7,
+    "fields": {
+      "tenant": 7,
+      "full_name": "Người liên hệ Demo",
+      "relationship": "Người thân",
+      "phone": "0900000099",
+      "email": "contact@example.com"
+    }
+  },
+  {
+    "model": "tenants.contact",
+    "pk": 8,
+    "fields": {
+      "tenant": 8,
+      "full_name": "Người liên hệ Demo",
+      "relationship": "Người thân",
+      "phone": "0900000099",
+      "email": "contact@example.com"
+    }
+  },
+  {
+    "model": "tenants.contact",
+    "pk": 9,
+    "fields": {
+      "tenant": 9,
+      "full_name": "Người liên hệ Demo",
+      "relationship": "Người thân",
+      "phone": "0900000099",
+      "email": "contact@example.com"
+    }
+  },
+  {
+    "model": "tenants.contact",
+    "pk": 10,
+    "fields": {
+      "tenant": 10,
+      "full_name": "Người liên hệ Demo",
+      "relationship": "Người thân",
+      "phone": "0900000099",
+      "email": "contact@example.com"
+    }
+  },
+  {
+    "model": "contracts.contract",
+    "pk": 1,
+    "fields": {
+      "code": "HD-DEMO-001",
+      "apartment": 1,
+      "tenant": 1,
+      "start_date": "2026-05-11",
+      "end_date": "2026-09-15",
+      "deposit_amount": "9000000",
+      "status": "active",
+      "contract_content": "Hợp đồng HD-DEMO-001. Thời hạn từ 11/05/2026 đến 15/09/2026. Tiền thuê 4,500,000 đồng/tháng. Tiền cọc 9,000,000 đồng. Thanh toán trước ngày 05 mỗi tháng. Khi chấm dứt cần thông báo trước 30 ngày. Tiền cọc được đối soát sau khi hoàn thành nghĩa vụ thanh toán và bàn giao căn hộ."
+    }
+  },
+  {
+    "model": "contracts.contract",
+    "pk": 2,
+    "fields": {
+      "code": "HD-DEMO-002",
+      "apartment": 2,
+      "tenant": 2,
+      "start_date": "2026-05-11",
+      "end_date": "2026-09-20",
+      "deposit_amount": "9500000",
+      "status": "active",
+      "contract_content": "Hợp đồng HD-DEMO-002. Thời hạn từ 11/05/2026 đến 20/09/2026. Tiền thuê 4,750,000 đồng/tháng. Tiền cọc 9,500,000 đồng. Thanh toán trước ngày 05 mỗi tháng. Khi chấm dứt cần thông báo trước 30 ngày. Tiền cọc được đối soát sau khi hoàn thành nghĩa vụ thanh toán và bàn giao căn hộ."
+    }
+  },
+  {
+    "model": "contracts.contract",
+    "pk": 3,
+    "fields": {
+      "code": "HD-DEMO-003",
+      "apartment": 3,
+      "tenant": 3,
+      "start_date": "2026-05-11",
+      "end_date": "2026-09-25",
+      "deposit_amount": "10000000",
+      "status": "active",
+      "contract_content": "Hợp đồng HD-DEMO-003. Thời hạn từ 11/05/2026 đến 25/09/2026. Tiền thuê 5,000,000 đồng/tháng. Tiền cọc 10,000,000 đồng. Thanh toán trước ngày 05 mỗi tháng. Khi chấm dứt cần thông báo trước 30 ngày. Tiền cọc được đối soát sau khi hoàn thành nghĩa vụ thanh toán và bàn giao căn hộ."
+    }
+  },
+  {
+    "model": "contracts.contract",
+    "pk": 4,
+    "fields": {
+      "code": "HD-DEMO-004",
+      "apartment": 4,
+      "tenant": 4,
+      "start_date": "2026-05-11",
+      "end_date": "2026-09-30",
+      "deposit_amount": "10500000",
+      "status": "active",
+      "contract_content": "Hợp đồng HD-DEMO-004. Thời hạn từ 11/05/2026 đến 30/09/2026. Tiền thuê 5,250,000 đồng/tháng. Tiền cọc 10,500,000 đồng. Thanh toán trước ngày 05 mỗi tháng. Khi chấm dứt cần thông báo trước 30 ngày. Tiền cọc được đối soát sau khi hoàn thành nghĩa vụ thanh toán và bàn giao căn hộ."
+    }
+  },
+  {
+    "model": "contracts.contract",
+    "pk": 5,
+    "fields": {
+      "code": "HD-DEMO-005",
+      "apartment": 5,
+      "tenant": 5,
+      "start_date": "2026-05-11",
+      "end_date": "2027-03-27",
+      "deposit_amount": "11000000",
+      "status": "active",
+      "contract_content": "Hợp đồng HD-DEMO-005. Thời hạn từ 11/05/2026 đến 27/03/2027. Tiền thuê 5,500,000 đồng/tháng. Tiền cọc 11,000,000 đồng. Thanh toán trước ngày 05 mỗi tháng. Khi chấm dứt cần thông báo trước 30 ngày. Tiền cọc được đối soát sau khi hoàn thành nghĩa vụ thanh toán và bàn giao căn hộ."
+    }
+  },
+  {
+    "model": "contracts.contract",
+    "pk": 6,
+    "fields": {
+      "code": "HD-DEMO-006",
+      "apartment": 6,
+      "tenant": 6,
+      "start_date": "2026-05-11",
+      "end_date": "2027-03-27",
+      "deposit_amount": "11500000",
+      "status": "active",
+      "contract_content": "Hợp đồng HD-DEMO-006. Thời hạn từ 11/05/2026 đến 27/03/2027. Tiền thuê 5,750,000 đồng/tháng. Tiền cọc 11,500,000 đồng. Thanh toán trước ngày 05 mỗi tháng. Khi chấm dứt cần thông báo trước 30 ngày. Tiền cọc được đối soát sau khi hoàn thành nghĩa vụ thanh toán và bàn giao căn hộ."
+    }
+  },
+  {
+    "model": "contracts.contract",
+    "pk": 7,
+    "fields": {
+      "code": "HD-DEMO-007",
+      "apartment": 7,
+      "tenant": 7,
+      "start_date": "2026-05-11",
+      "end_date": "2027-03-27",
+      "deposit_amount": "12000000",
+      "status": "active",
+      "contract_content": "Hợp đồng HD-DEMO-007. Thời hạn từ 11/05/2026 đến 27/03/2027. Tiền thuê 6,000,000 đồng/tháng. Tiền cọc 12,000,000 đồng. Thanh toán trước ngày 05 mỗi tháng. Khi chấm dứt cần thông báo trước 30 ngày. Tiền cọc được đối soát sau khi hoàn thành nghĩa vụ thanh toán và bàn giao căn hộ."
+    }
+  },
+  {
+    "model": "contracts.contract",
+    "pk": 8,
+    "fields": {
+      "code": "HD-DEMO-008",
+      "apartment": 8,
+      "tenant": 8,
+      "start_date": "2026-05-11",
+      "end_date": "2027-03-27",
+      "deposit_amount": "12500000",
+      "status": "active",
+      "contract_content": "Hợp đồng HD-DEMO-008. Thời hạn từ 11/05/2026 đến 27/03/2027. Tiền thuê 6,250,000 đồng/tháng. Tiền cọc 12,500,000 đồng. Thanh toán trước ngày 05 mỗi tháng. Khi chấm dứt cần thông báo trước 30 ngày. Tiền cọc được đối soát sau khi hoàn thành nghĩa vụ thanh toán và bàn giao căn hộ."
+    }
+  },
+  {
+    "model": "contracts.contract",
+    "pk": 9,
+    "fields": {
+      "code": "HD-DEMO-009",
+      "apartment": 9,
+      "tenant": 9,
+      "start_date": "2026-05-11",
+      "end_date": "2027-03-27",
+      "deposit_amount": "13000000",
+      "status": "active",
+      "contract_content": "Hợp đồng HD-DEMO-009. Thời hạn từ 11/05/2026 đến 27/03/2027. Tiền thuê 6,500,000 đồng/tháng. Tiền cọc 13,000,000 đồng. Thanh toán trước ngày 05 mỗi tháng. Khi chấm dứt cần thông báo trước 30 ngày. Tiền cọc được đối soát sau khi hoàn thành nghĩa vụ thanh toán và bàn giao căn hộ."
+    }
+  },
+  {
+    "model": "contracts.contract",
+    "pk": 10,
+    "fields": {
+      "code": "HD-DEMO-010",
+      "apartment": 10,
+      "tenant": 10,
+      "start_date": "2026-05-11",
+      "end_date": "2027-03-27",
+      "deposit_amount": "13500000",
+      "status": "active",
+      "contract_content": "Hợp đồng HD-DEMO-010. Thời hạn từ 11/05/2026 đến 27/03/2027. Tiền thuê 6,750,000 đồng/tháng. Tiền cọc 13,500,000 đồng. Thanh toán trước ngày 05 mỗi tháng. Khi chấm dứt cần thông báo trước 30 ngày. Tiền cọc được đối soát sau khi hoàn thành nghĩa vụ thanh toán và bàn giao căn hộ."
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 1,
+    "fields": {
+      "contract": 1,
+      "amount": "4500000",
+      "kind": "rent",
+      "due_date": "2026-09-05",
+      "paid_date": null,
+      "status": "pending"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 2,
+    "fields": {
+      "contract": 1,
+      "amount": "4500000",
+      "kind": "rent",
+      "due_date": "2026-08-05",
+      "paid_date": "2026-08-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 3,
+    "fields": {
+      "contract": 1,
+      "amount": "4500000",
+      "kind": "rent",
+      "due_date": "2026-07-05",
+      "paid_date": "2026-07-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 4,
+    "fields": {
+      "contract": 2,
+      "amount": "4750000",
+      "kind": "rent",
+      "due_date": "2026-09-05",
+      "paid_date": "2026-09-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 5,
+    "fields": {
+      "contract": 2,
+      "amount": "4750000",
+      "kind": "rent",
+      "due_date": "2026-08-05",
+      "paid_date": "2026-08-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 6,
+    "fields": {
+      "contract": 2,
+      "amount": "4750000",
+      "kind": "rent",
+      "due_date": "2026-07-05",
+      "paid_date": "2026-07-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 7,
+    "fields": {
+      "contract": 3,
+      "amount": "5000000",
+      "kind": "rent",
+      "due_date": "2026-09-05",
+      "paid_date": "2026-09-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 8,
+    "fields": {
+      "contract": 3,
+      "amount": "5000000",
+      "kind": "rent",
+      "due_date": "2026-08-05",
+      "paid_date": "2026-08-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 9,
+    "fields": {
+      "contract": 3,
+      "amount": "5000000",
+      "kind": "rent",
+      "due_date": "2026-07-05",
+      "paid_date": "2026-07-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 10,
+    "fields": {
+      "contract": 4,
+      "amount": "5250000",
+      "kind": "rent",
+      "due_date": "2026-09-05",
+      "paid_date": null,
+      "status": "pending"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 11,
+    "fields": {
+      "contract": 4,
+      "amount": "5250000",
+      "kind": "rent",
+      "due_date": "2026-08-05",
+      "paid_date": "2026-08-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 12,
+    "fields": {
+      "contract": 4,
+      "amount": "5250000",
+      "kind": "rent",
+      "due_date": "2026-07-05",
+      "paid_date": "2026-07-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 13,
+    "fields": {
+      "contract": 5,
+      "amount": "5500000",
+      "kind": "rent",
+      "due_date": "2026-09-05",
+      "paid_date": "2026-09-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 14,
+    "fields": {
+      "contract": 5,
+      "amount": "5500000",
+      "kind": "rent",
+      "due_date": "2026-08-05",
+      "paid_date": "2026-08-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 15,
+    "fields": {
+      "contract": 5,
+      "amount": "5500000",
+      "kind": "rent",
+      "due_date": "2026-07-05",
+      "paid_date": "2026-07-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 16,
+    "fields": {
+      "contract": 6,
+      "amount": "5750000",
+      "kind": "rent",
+      "due_date": "2026-09-05",
+      "paid_date": "2026-09-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 17,
+    "fields": {
+      "contract": 6,
+      "amount": "5750000",
+      "kind": "rent",
+      "due_date": "2026-08-05",
+      "paid_date": "2026-08-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 18,
+    "fields": {
+      "contract": 6,
+      "amount": "5750000",
+      "kind": "rent",
+      "due_date": "2026-07-05",
+      "paid_date": "2026-07-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 19,
+    "fields": {
+      "contract": 7,
+      "amount": "6000000",
+      "kind": "rent",
+      "due_date": "2026-09-05",
+      "paid_date": null,
+      "status": "pending"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 20,
+    "fields": {
+      "contract": 7,
+      "amount": "6000000",
+      "kind": "rent",
+      "due_date": "2026-08-05",
+      "paid_date": "2026-08-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 21,
+    "fields": {
+      "contract": 7,
+      "amount": "6000000",
+      "kind": "rent",
+      "due_date": "2026-07-05",
+      "paid_date": "2026-07-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 22,
+    "fields": {
+      "contract": 8,
+      "amount": "6250000",
+      "kind": "rent",
+      "due_date": "2026-09-05",
+      "paid_date": "2026-09-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 23,
+    "fields": {
+      "contract": 8,
+      "amount": "6250000",
+      "kind": "rent",
+      "due_date": "2026-08-05",
+      "paid_date": "2026-08-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 24,
+    "fields": {
+      "contract": 8,
+      "amount": "6250000",
+      "kind": "rent",
+      "due_date": "2026-07-05",
+      "paid_date": "2026-07-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 25,
+    "fields": {
+      "contract": 9,
+      "amount": "6500000",
+      "kind": "rent",
+      "due_date": "2026-09-05",
+      "paid_date": "2026-09-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 26,
+    "fields": {
+      "contract": 9,
+      "amount": "6500000",
+      "kind": "rent",
+      "due_date": "2026-08-05",
+      "paid_date": "2026-08-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 27,
+    "fields": {
+      "contract": 9,
+      "amount": "6500000",
+      "kind": "rent",
+      "due_date": "2026-07-05",
+      "paid_date": "2026-07-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 28,
+    "fields": {
+      "contract": 10,
+      "amount": "6750000",
+      "kind": "rent",
+      "due_date": "2026-09-05",
+      "paid_date": null,
+      "status": "pending"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 29,
+    "fields": {
+      "contract": 10,
+      "amount": "6750000",
+      "kind": "rent",
+      "due_date": "2026-08-05",
+      "paid_date": "2026-08-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "payments.payment",
+    "pk": 30,
+    "fields": {
+      "contract": 10,
+      "amount": "6750000",
+      "kind": "rent",
+      "due_date": "2026-07-05",
+      "paid_date": "2026-07-05",
+      "status": "paid"
+    }
+  },
+  {
+    "model": "maintenance.maintenancerequest",
+    "pk": 1,
+    "fields": {
+      "apartment": 2,
+      "content": "Điều hòa phòng ngủ cần kiểm tra",
+      "created_at": "2026-09-08T08:18:15.652Z",
+      "priority": "normal",
+      "status": "open",
+      "notes": ""
+    }
+  },
+  {
+    "model": "maintenance.maintenancerequest",
+    "pk": 2,
+    "fields": {
+      "apartment": 6,
+      "content": "Vòi nước bếp bị rò rỉ",
+      "created_at": "2026-09-08T08:18:15.653Z",
+      "priority": "high",
+      "status": "open",
+      "notes": ""
+    }
+  },
+  {
+    "model": "maintenance.maintenancerequest",
+    "pk": 3,
+    "fields": {
+      "apartment": 9,
+      "content": "Thay bóng đèn ban công",
+      "created_at": "2026-09-08T08:18:15.653Z",
+      "priority": "low",
+      "status": "open",
+      "notes": ""
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 1,
+    "fields": {
+      "title": "Giờ yên tĩnh",
+      "content": "Giờ yên tĩnh từ 22:00 đến 06:00. Không mở nhạc lớn, tổ chức tiệc gây ồn hoặc thi công trong khung giờ này.",
+      "document_type": "Nội quy demo",
+      "updated_at": "2026-09-08T08:18:15.654Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 2,
+    "fields": {
+      "title": "Quy định thú cưng",
+      "content": "Khách thuê được nuôi thú cưng sau khi đăng ký với quản lý. Thú cưng phải được giữ dây khi đi trong khu vực chung. Chủ nuôi chịu trách nhiệm vệ sinh.",
+      "document_type": "Nội quy demo",
+      "updated_at": "2026-09-08T08:18:15.654Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 3,
+    "fields": {
+      "title": "Gia hạn và bàn giao",
+      "content": "Khách thuê cần thông báo nhu cầu gia hạn ít nhất 30 ngày trước ngày hết hạn hợp đồng. Khi bàn giao cần kiểm kê tiện ích và đối soát các khoản còn nợ.",
+      "document_type": "Nội quy demo",
+      "updated_at": "2026-09-08T08:18:15.655Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 4,
+    "fields": {
+      "title": "Thanh toán tiền thuê",
+      "content": "Tiền thuê được thanh toán trước ngày 05 mỗi tháng theo nội dung hợp đồng. Liên hệ kế toán để xác nhận số tiền và nhận thông tin thanh toán.",
+      "document_type": "Nội quy demo",
+      "updated_at": "2026-09-08T08:18:15.655Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 5,
+    "fields": {
+      "title": "[TEST] Đăng ký gửi xe",
+      "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Khách thuê đăng ký gửi xe tại quầy lễ tân, cung cấp mã căn hộ và biển số xe. Phí gửi xe máy là 120.000 đồng/xe/tháng. Phí gửi ô tô là 1.200.000 đồng/xe/tháng. Mỗi căn hộ được đăng ký tối đa 2 xe máy và 1 ô tô, tùy chỗ trống.",
+      "document_type": "Dữ liệu kiểm thử chatbot",
+      "updated_at": "2026-09-23T08:32:40.398Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 6,
+    "fields": {
+      "title": "[TEST] Giờ mở cửa hồ bơi",
+      "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Hồ bơi mở cửa từ 06:00 đến 21:00 hằng ngày. Hồ bơi đóng cửa bảo dưỡng vào sáng thứ Hai từ 06:00 đến 10:00. Trẻ em dưới 12 tuổi phải có người lớn đi cùng. Cư dân không mang đồ ăn hoặc chai thủy tinh vào hồ bơi.",
+      "document_type": "Dữ liệu kiểm thử chatbot",
+      "updated_at": "2026-09-23T08:32:40.401Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 7,
+    "fields": {
+      "title": "[TEST] Sử dụng phòng tập gym",
+      "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Phòng tập gym mở cửa từ 05:30 đến 22:00 hằng ngày. Cư dân đã đăng ký được sử dụng phòng tập miễn phí. Khách thuê mang giày thể thao, lau thiết bị sau khi tập và không đưa khách ngoài vào phòng tập.",
+      "document_type": "Dữ liệu kiểm thử chatbot",
+      "updated_at": "2026-09-23T08:32:40.402Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 8,
+    "fields": {
+      "title": "[TEST] Thu gom và phân loại rác",
+      "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Cư dân phân loại rác thành rác tái chế và rác sinh hoạt. Rác sinh hoạt phải buộc kín túi trước khi bỏ vào phòng rác từng tầng. Giờ bỏ rác từ 06:00 đến 09:00 và từ 18:00 đến 21:00. Không để rác ở hành lang hoặc cầu thang.",
+      "document_type": "Dữ liệu kiểm thử chatbot",
+      "updated_at": "2026-09-23T08:32:40.402Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 9,
+    "fields": {
+      "title": "[TEST] Khách đến thăm và ở qua đêm",
+      "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Khách đến thăm đăng ký tại lễ tân và được cư dân xác nhận trước khi lên căn hộ. Khách ở qua đêm phải được người thuê thông báo cho ban quản lý trước 22:00. Không cho khách mượn thẻ cư dân để tự do ra vào.",
+      "document_type": "Dữ liệu kiểm thử chatbot",
+      "updated_at": "2026-09-23T08:32:40.403Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 10,
+    "fields": {
+      "title": "[TEST] Tiếp nhận yêu cầu sửa chữa",
+      "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Khách thuê báo yêu cầu sửa chữa cho lễ tân hoặc nhân viên quản lý, nêu mã căn hộ, thiết bị hỏng và mô tả sự cố. Bộ phận bảo trì tiếp nhận yêu cầu thông thường từ 08:00 đến 17:00, thứ Hai đến thứ Bảy. Thời gian phản hồi ban đầu là trong 24 giờ làm việc; đây không phải cam kết hoàn thành sửa chữa.",
+      "document_type": "Dữ liệu kiểm thử chatbot",
+      "updated_at": "2026-09-23T08:32:40.404Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 11,
+    "fields": {
+      "title": "[TEST] Cấp lại thẻ cư dân",
+      "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Khi mất thẻ cư dân, khách thuê báo ngay cho lễ tân để khóa thẻ cũ. Phí cấp lại thẻ là 100.000 đồng/thẻ. Thẻ mới được cấp trong 2 ngày làm việc sau khi xác nhận thông tin người thuê.",
+      "document_type": "Dữ liệu kiểm thử chatbot",
+      "updated_at": "2026-09-23T08:32:40.404Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 12,
+    "fields": {
+      "title": "[TEST] Đăng ký chuyển đồ và thang máy",
+      "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Khách thuê đăng ký chuyển đồ với ban quản lý trước ít nhất 24 giờ. Giờ chuyển đồ từ 09:00 đến 11:00 và từ 14:00 đến 16:00, thứ Hai đến thứ Bảy. Dùng thang máy hàng theo lịch được xác nhận; không chặn lối thoát hiểm bằng đồ đạc.",
+      "document_type": "Dữ liệu kiểm thử chatbot",
+      "updated_at": "2026-09-23T08:32:40.405Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 13,
+    "fields": {
+      "title": "[TEST] Tiếp nhận bưu phẩm",
+      "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Lễ tân nhận bưu phẩm từ 08:00 đến 20:00. Cư dân nhận bưu phẩm trong vòng 48 giờ sau khi được thông báo và xuất trình thẻ cư dân. Lễ tân không nhận hộ hàng thu tiền COD, hàng đông lạnh hoặc hàng dễ hư hỏng.",
+      "document_type": "Dữ liệu kiểm thử chatbot",
+      "updated_at": "2026-09-23T08:32:40.405Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "regulations.regulation",
+    "pk": 14,
+    "fields": {
+      "title": "[TEST] Đặt phòng sinh hoạt cộng đồng",
+      "content": "Dữ liệu hư cấu dùng để kiểm thử chatbot. Phòng sinh hoạt cộng đồng cần đặt trước ít nhất 2 ngày. Mỗi căn hộ được đặt tối đa 2 giờ mỗi lần, trong khoảng 08:00 đến 21:00. Sức chứa tối đa 20 người. Sau khi sử dụng phải dọn vệ sinh và trả lại bàn ghế đúng vị trí.",
+      "document_type": "Dữ liệu kiểm thử chatbot",
+      "updated_at": "2026-09-23T08:32:40.406Z",
+      "is_active": true
+    }
+  }
+]
