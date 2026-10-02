@@ -14,5 +14,5 @@ urlpatterns = [
     path("ai/", include("ai_assistant.urls")),
     path("", include("reports.urls")),
 ]
-admin.site.site_header = "Quản trị Nestora"
-admin.site.site_title = "Nestora"
+admin.site.site_header = "Quản trị An Cư"
+admin.site.site_title = "An Cư"

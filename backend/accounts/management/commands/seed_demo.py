@@ -49,11 +49,11 @@ class Command(BaseCommand):
         buildings = []
         for name, address in [
             (
-                "Nestora Riverside",
+                "An Cư Riverside",
                 ("12 đường Ven Sông, Thái Nguyên (dữ l" "iệu demo)"),
             ),
             (
-                "Nestora Garden",
+                "An Cư Garden",
                 ("28 đường Cây Xanh, Thái Nguyên (dữ l" "iệu demo)"),
             ),
         ]:

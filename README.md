@@ -1,4 +1,4 @@
-# Nestora — Hệ thống quản lý thuê căn hộ có tích hợp AI
+# An Cư — Hệ thống quản lý thuê căn hộ có tích hợp AI
 
 Ứng dụng web Django cho Nhóm 02, lớp CNTT K23K, Khoa Công nghệ thông tin, Trường Đại học Công nghệ thông tin và Truyền thông. Nguyễn Phương Anh (Trưởng nhóm), Lừu Thị Huệ (Phó nhóm). Yêu cầu được đối chiếu với ContextProject.txt, project.md và informember.md. Giao diện tiếng Việt phục vụ Quản lý, Nhân viên và Kế toán.
 

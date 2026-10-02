@@ -1,7 +1,7 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-title Nestora - Quan ly thue can ho
+title An Cu - Quan ly thue can ho
 if not exist ".venv\Scripts\python.exe" (
     echo Chua co moi truong Python. Hay cai dat theo README.md.
     pause
@@ -17,7 +17,7 @@ if not errorlevel 1 (
     start "" "http://127.0.0.1:8000"
     exit /b 0
 )
-echo Dang khoi dong Nestora...
+echo Dang khoi dong An Cu...
 echo Dia chi: http://127.0.0.1:8000
 echo Giu cua so nay mo trong khi su dung. Nhan Ctrl+C de dung.
 start "" /b powershell -NoProfile -WindowStyle Hidden -Command "Start-Sleep -Seconds 2; Start-Process 'http://127.0.0.1:8000'"
