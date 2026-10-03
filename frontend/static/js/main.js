@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('input[type="password"]').forEach(input => {
+    const toggle = input.closest('.password-control')?.querySelector('.password-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', () => {
+      const visible = input.type === 'password';
+      input.type = visible ? 'text' : 'password';
+      toggle.setAttribute('aria-label', visible ? 'Ẩn mật khẩu' : 'Hiện mật khẩu');
+      toggle.setAttribute('aria-pressed', String(visible));
+    });
+  });
   const path = window.location.pathname;
   let best = null;
   document.querySelectorAll('.nav-link').forEach(link => {
