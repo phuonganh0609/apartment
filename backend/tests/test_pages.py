@@ -3,6 +3,19 @@ from .base import DomainTestCase
 
 
 class PageSmokeTests(DomainTestCase):
+    def test_public_home_and_private_dashboard(self):
+        page = self.client.get("/")
+        self.assertEqual(page.status_code, 200)
+        for label in ("Người quản lý", "Nhân viên", "Kế toán", "Khách thuê"):
+            self.assertContains(page, label)
+        self.assertNotContains(page, "TEST-001")
+        self.assertNotContains(page, 'href="/payments/"')
+        self.assertEqual(self.client.get("/dashboard/").status_code, 302)
+
+    def test_logout_returns_to_public_home(self):
+        self.client.force_login(self.staff)
+        self.assertRedirects(self.client.post("/accounts/logout/"), "/")
+
     def test_manager_pages_render(self):
         self.client.force_login(self.manager)
         paths = [
@@ -33,7 +46,6 @@ class PageSmokeTests(DomainTestCase):
             "/regulations/",
             "/regulations/new/",
             "/regulations/documents/new/",
-            "/ai/chatbot/",
             f"/contracts/{self.contract.pk}/",
             f"/contracts/{self.contract.pk}/edit/",
             f"/contracts/{self.contract.pk}/extend/",

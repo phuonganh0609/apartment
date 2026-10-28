@@ -1,4 +1,6 @@
 import tempfile
+from unittest.mock import patch
+from django.db import OperationalError, transaction
 from pathlib import Path
 from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -9,6 +11,66 @@ from .base import DomainTestCase
 
 
 class DocumentTests(DomainTestCase):
+    def make_document(self):
+        regulation = Regulation.objects.create(
+            title="Nội quy", content="Giờ yên tĩnh từ 22 giờ.",
+            document_type="Test",
+        )
+        return RegulationDocument.objects.create(
+            regulation=regulation, filename="rules.txt",
+            file=SimpleUploadedFile("rules.txt", b"quiet hours"),
+        )
+
+    def test_delete_attachment_and_cascade_clean_storage(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with override_settings(MEDIA_ROOT=directory):
+                for cascade in (False, True):
+                    document = self.make_document()
+                    storage, name = document.file.storage, document.file.name
+                    with self.captureOnCommitCallbacks(execute=True):
+                        if cascade:
+                            document.regulation.delete()
+                        else:
+                            document.delete()
+                        self.assertTrue(storage.exists(name))
+                    self.assertFalse(storage.exists(name))
+
+    def test_rollback_preserves_attachment(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with override_settings(MEDIA_ROOT=directory):
+                document = self.make_document()
+                storage, name = document.file.storage, document.file.name
+                with self.captureOnCommitCallbacks(execute=True):
+                    try:
+                        with transaction.atomic():
+                            document.delete()
+                            raise ValueError("rollback")
+                    except ValueError:
+                        pass
+                self.assertTrue(storage.exists(name))
+                self.assertEqual(RegulationDocument.objects.count(), 1)
+
+    def test_upload_failure_returns_form_and_removes_partial_file(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with override_settings(MEDIA_ROOT=directory):
+                document = self.make_document()
+                regulation = document.regulation
+                document.file.delete()
+                document.delete()
+                self.client.force_login(self.manager)
+                for error, target in (
+                    (OSError("disk full"), "django.core.files.storage.FileSystemStorage._save"),
+                    (OperationalError("database unavailable"), "django.db.models.Model._save_table"),
+                ):
+                    with patch(target, side_effect=error):
+                        response = self.client.post(
+                            "/regulations/documents/new/",
+                            {"regulation": regulation.pk, "file":
+                             SimpleUploadedFile("rules.txt", b"Quiet hours 22")},
+                        )
+                    self.assertContains(response, "Không thể lưu tài liệu")
+                    self.assertFalse(RegulationDocument.objects.exists())
+                    self.assertFalse(any(Path(directory).rglob("*.txt")))
     def test_extract_utf8(self):
         upload = SimpleUploadedFile(
             "rules.txt", "Giờ yên tĩnh từ 22 giờ.".encode()

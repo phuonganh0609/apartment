@@ -32,7 +32,7 @@ def require_roles(*roles):
 
 def deposit_allowed(user):
     return allowed(user, ("manager",)) or (
-        allowed(user) and user.can_edit_deposit
+        allowed(user, FINANCE) and user.can_edit_deposit
     )
 
 
@@ -43,4 +43,5 @@ def navigation(request):
         "can_finance": allowed(user, FINANCE),
         "can_manage": allowed(user, ("manager",)),
         "can_deposit": deposit_allowed(user),
+        "is_tenant": allowed(user, ("tenant",)),
     }

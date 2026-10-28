@@ -6,7 +6,7 @@ from .services import extract_text
 class RegulationForm(StyledModelForm):
     class Meta:
         model = Regulation
-        fields = ["title", "content", "document_type", "is_active"]
+        fields = ["title", "content", "document_type", "audience", "is_active"]
 
 
 class RegulationDocumentForm(StyledModelForm):

@@ -1,5 +1,4 @@
 from regulations.models import Regulation
-from collections import Counter
 import unicodedata
 import re
 
@@ -37,6 +36,8 @@ STOPWORDS = {
     "the",
     "bao",
     "nhieu",
+    "hom",
+    "nay",
 }
 
 
@@ -53,13 +54,17 @@ def tokens(text):
     }
 
 
-def retrieve(question, limit=4):
+def retrieve(question, limit=4, user=None):
     query = tokens(question)
     if not query:
         return []
     candidates = []
+    regulations = Regulation.objects.filter(is_active=True)
+    if user is not None:
+        from regulations.access import visible_regulations
+        regulations = visible_regulations(user, regulations)
     for regulation in (
-        Regulation.objects.filter(is_active=True)
+        regulations
         .prefetch_related("documents")
         .order_by("pk")
     ):
@@ -76,7 +81,9 @@ def retrieve(question, limit=4):
                 words = tokens(chunk)
                 overlap = query & words
                 score = len(overlap) / len(query)
-                if overlap and score >= 0.25:
+                # One incidental word is insufficient for a longer question.
+                minimum = min(2, len(query))
+                if len(overlap) >= minimum and score >= 0.5:
                     candidates.append(
                         {
                             "regulation_id": regulation.pk,

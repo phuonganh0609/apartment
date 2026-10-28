@@ -9,10 +9,19 @@ def document_path(instance, filename):
 
 
 class Regulation(models.Model):
+    class Audience(models.TextChoices):
+        PUBLIC = "public", "Công khai"
+        TENANTS = "tenants", "Khách thuê và nhân sự"
+        INTERNAL = "internal", "Nhân viên và quản lý"
+        FINANCE = "finance", "Kế toán và quản lý"
     class Meta:
         app_label = "regulations"
 
     title = models.CharField("Tiêu đề quy định", max_length=200)
+    audience = models.CharField(
+        "Phạm vi truy cập", max_length=20, choices=Audience.choices,
+        default=Audience.INTERNAL,
+    )
     content = models.TextField("Nội dung quy định", max_length=100000)
     document_type = models.CharField("Loại tài liệu", max_length=100)
     updated_at = models.DateTimeField("Cập nhật lúc", auto_now=True)

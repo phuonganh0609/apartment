@@ -1,12 +1,35 @@
 from .ai_client import AIError, generate_json
 from RAG.rag_service import retrieve
 from ..prompts.chatbot_prompts import SYSTEM
+import re
+import unicodedata
 
-NO_INFO = "Chưa tìm thấy đủ thông tin trong tài liệu quy định."
+
+def greeting_response(question):
+    text = unicodedata.normalize("NFD", question.lower().strip())
+    text = "".join(c for c in text if unicodedata.category(c) != "Mn")
+    text = " ".join(re.findall(r"[a-z0-9]+", text))
+    greetings = {
+        "xin chao", "chao", "chao ban", "chao chatbot", "chao ai",
+        "xin chao ban", "xin chao chatbot", "xin chao ai", "hello",
+        "hello ban", "hi", "hey", "alo", "chao buoi sang",
+        "chao buoi trua", "chao buoi chieu", "chao buoi toi",
+    }
+    if text in greetings:
+        return {
+            "answer": "Xin chào! Mình là trợ lý Nestora. Mình có thể giúp bạn tra cứu quy định thuê căn hộ, thanh toán, tiền cọc và cách báo hỏng. Bạn muốn tìm hiểu điều gì?",
+            "sources": [],
+        }
+    return None
+
+NO_INFO = "Chưa tìm thấy đủ thông tin trong tài liệu quy định bạn được phép xem. Vui lòng liên hệ người quản lý để được hỗ trợ."
 
 
-def answer_question(question):
-    sources = retrieve(question)
+def answer_question(question, user=None):
+    greeting = greeting_response(question)
+    if greeting:
+        return greeting
+    sources = retrieve(question, user=user)
     if not sources:
         return {"answer": NO_INFO, "sources": []}
     result = generate_json(

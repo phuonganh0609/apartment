@@ -13,3 +13,7 @@ SYSTEM = (
     "ố nguyên ID nguồn đã dùng. Không tự "
     "tạo nguồn hoặc quy định."
 )
+
+SYSTEM += (" Trả lời ngắn gọn, rõ ràng. Khi thiếu thông tin, hướng dẫn liên hệ người quản lý. "
+           "Câu hỏi ngoài phạm vi: giải thích chỉ hỗ trợ quy định thuê căn hộ. "
+           "Câu hỏi pháp lý: không kết luận, hướng dẫn hỏi người có chuyên môn.")

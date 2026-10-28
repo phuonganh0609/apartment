@@ -2,10 +2,13 @@ from django.contrib import messages
 from django.http import FileResponse, Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_http_methods
+from django.db import DatabaseError, transaction
 from accounts.permissions import ALL, allowed, require_roles
 from config.crud import Resource
 from .forms import RegulationDocumentForm, RegulationForm
 from .models import Regulation, RegulationDocument
+from .signals import delete_file
+from .access import visible_regulations
 
 regulations = Resource(
     Regulation,
@@ -20,6 +23,7 @@ regulations = Resource(
         ("is_active", "Áp dụng"),
     ),
     search=("title", "content"),
+    scope=visible_regulations,
     write_roles=("manager",),
     extra_context=lambda request, obj: {
         "documents": obj.documents.all() if obj else []
@@ -35,13 +39,24 @@ def upload(request):
         request.FILES or None,
     )
     if request.method == "POST" and form.is_valid():
-        document = form.save()
-        messages.success(
-            request, "Đã tải tài liệu và trích xuất nội dung cho chatbot."
-        )
-        return redirect(
-            "regulations:regulation_detail", pk=document.regulation_id
-        )
+        document = form.save(commit=False)
+        try:
+            with transaction.atomic():
+                document.save()
+        except (OSError, DatabaseError):
+            # FileField can write bytes before the database INSERT fails.
+            if document.file._committed:
+                delete_file(document.file.storage, document.file.name)
+            form.add_error(
+                None, "Không thể lưu tài liệu. Vui lòng thử lại sau."
+            )
+        else:
+            messages.success(
+                request, "Đã tải tài liệu và trích xuất nội dung cho chatbot."
+            )
+            return redirect(
+                "regulations:regulation_detail", pk=document.regulation_id
+            )
     return render(
         request,
         "regulations/regulation_document_form.html",
@@ -55,7 +70,9 @@ def upload(request):
 
 @require_roles(*ALL)
 def download(request, pk):
-    document = get_object_or_404(RegulationDocument, pk=pk)
+    document = get_object_or_404(RegulationDocument.objects.filter(
+        regulation__in=visible_regulations(request.user)
+    ), pk=pk)
     try:
         return FileResponse(
             document.file.open("rb"),

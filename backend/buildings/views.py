@@ -1,3 +1,4 @@
+from accounts.permissions import OPERATIONS
 from config.crud import Resource
 from .forms import (
     AmenityForm,
@@ -15,6 +16,7 @@ buildings = Resource(
     "buildings",
     "building",
     (("name", "Tòa nhà"), ("address", "Địa chỉ"), ("is_active", "Hoạt động")),
+    read_roles=OPERATIONS,
     search=("name", "address"),
     order_fields=("pk", "name"),
 )
@@ -31,6 +33,7 @@ apartments = Resource(
         ("rent", "Giá thuê / tháng"),
         ("occupancy_label", "Tình trạng"),
     ),
+    read_roles=OPERATIONS,
     search=("code", "building__name"),
     queryset=apartments_with_occupancy,
     filters=(
@@ -64,6 +67,7 @@ amenities = Resource(
         ("description", "Mô tả"),
         ("is_active", "Đang dùng"),
     ),
+    read_roles=OPERATIONS,
     search=("name",),
 )
 links = Resource(
@@ -78,6 +82,7 @@ links = Resource(
         ("quantity", "Số lượng"),
         ("notes", "Ghi chú"),
     ),
+    read_roles=OPERATIONS,
     search=("apartment__code", "amenity__name"),
     related=("apartment__building", "amenity"),
 )

@@ -6,6 +6,7 @@ from django.views.decorators.http import require_http_methods
 
 from accounts.permissions import (
     ALL,
+    FINANCE,
     OPERATIONS,
     deposit_allowed,
     require_roles,
@@ -14,6 +15,13 @@ from config.crud import Resource
 from .forms import ContractForm, DepositForm, ExtendForm
 from .models import Contract
 from .services import extend_contract, save_contract, terminate_contract
+from accounts.ai_permissions import ai_contracts, can_notify
+
+
+def contract_ai_context(request, obj):
+    if obj and can_notify(request.user, payment=True) and ai_contracts(request.user).filter(pk=obj.pk).exists():
+        return {"ai_payment_options": obj.payments.filter(status="pending").order_by("due_date")}
+    return {"ai_payment_options": []}
 
 contracts = Resource(
     Contract,
@@ -33,11 +41,13 @@ contracts = Resource(
     related=("tenant", "apartment__building"),
     deletable=False,
     saver=save_contract,
+    form_options=lambda request, obj: {"actor": request.user},
+    extra_context=contract_ai_context,
     order_fields=("pk", "code", "end_date"),
 )
 
 
-@require_roles(*ALL)
+@require_roles(*FINANCE)
 def deposits(request):
     query = request.GET.get("q", "").strip()[:200]
     from django.db.models import Q
@@ -74,7 +84,8 @@ def deposit_edit(request, pk):
         # Only this one field is updated; crafted POSTs cannot change the
         # contract.
         Contract.objects.filter(pk=pk).update(
-            deposit_amount=form.cleaned_data["deposit_amount"]
+            deposit_amount=form.cleaned_data["deposit_amount"],
+            deposit_status=form.cleaned_data["deposit_status"],
         )
         messages.success(request, "Đã cập nhật tiền cọc.")
         return redirect("contracts:deposit_list")

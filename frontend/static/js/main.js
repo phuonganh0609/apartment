@@ -9,18 +9,23 @@ document.addEventListener('DOMContentLoaded', () => {
       toggle.setAttribute('aria-pressed', String(visible));
     });
   });
+  document.querySelectorAll('[data-month-picker]').forEach(form => {
+    const year = form.querySelector('[data-report-year]');
+    form.querySelectorAll('[data-report-month]').forEach(button => {
+      button.addEventListener('click', () => {
+        form.querySelector('[name="month"]').value = `${year.value}-${button.dataset.reportMonth.padStart(2, '0')}`;
+        form.requestSubmit();
+      });
+    });
+  });
   const path = window.location.pathname;
   let best = null;
   document.querySelectorAll('.nav-link').forEach(link => {
+    if (link.search) return;
     const target = new URL(link.href).pathname;
     if ((target === '/' ? path === '/' : path.startsWith(target)) && (!best || target.length > new URL(best.href).pathname.length)) best = link;
   });
   if (best) { best.classList.add('active'); best.setAttribute('aria-current', 'page'); }
-  const menu = document.querySelector('.menu-toggle');
-  if (menu) menu.addEventListener('click', () => {
-    const open = document.getElementById('sidebar').classList.toggle('open');
-    menu.setAttribute('aria-expanded', String(open));
-  });
   document.querySelectorAll('[data-ai-form]').forEach(form => form.addEventListener('submit', () => {
     form.querySelector('button[type="submit"]').disabled = true;
     const message = form.querySelector('.loading-message');

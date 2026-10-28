@@ -14,10 +14,15 @@ class ContractForm(StyledModelForm):
             "end_date",
             "status",
             "contract_content",
+            "ai_authorized_users",
         ]
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, actor=None, **kwargs):
         super().__init__(*args, **kwargs)
+        if actor is None or not (actor.is_superuser or actor.role == "manager"):
+            self.fields.pop("ai_authorized_users", None)
+        else:
+            self.fields["ai_authorized_users"].queryset = self.fields["ai_authorized_users"].queryset.filter(is_active=True).exclude(role="tenant")
         # Terminal state is only available through a separate, confirmed
         # action.
         self.fields["status"].choices = Contract.Status.choices[:2]
@@ -61,9 +66,17 @@ class ContractForm(StyledModelForm):
 
 
 class DepositForm(StyledModelForm):
+    deposit_status = forms.ChoiceField(
+        label="Tình trạng tiền cọc", choices=Contract.DepositStatus.choices,
+        required=False,
+    )
+
+    def clean_deposit_status(self):
+        return self.cleaned_data.get("deposit_status") or self.instance.deposit_status
+
     class Meta:
         model = Contract
-        fields = ["deposit_amount"]
+        fields = ["deposit_amount", "deposit_status"]
 
 
 class ExtendForm(forms.Form):

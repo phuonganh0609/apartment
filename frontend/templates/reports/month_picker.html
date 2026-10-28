@@ -1,0 +1,17 @@
+<form method="get" class="dropdown" data-month-picker>
+  <input type="hidden" name="month" value="{{ month }}">
+  <button class="btn btn-light border d-inline-flex align-items-center gap-3 bg-white" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" aria-label="Chọn tháng báo cáo">
+    <span>Tháng {{ selected_month }}, {{ selected_year }}</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18"/></svg>
+  </button>
+  <div class="dropdown-menu dropdown-menu-end p-3 border-0 shadow rounded-4" style="width:290px">
+    <label class="form-label small text-secondary" for="report-year">Năm báo cáo</label>
+    <select class="form-select form-select-sm mb-3" id="report-year" data-report-year aria-label="Năm báo cáo">
+      {% for year in report_years %}<option value="{{ year|stringformat:'d' }}" {% if year == selected_year %}selected{% endif %}>{{ year|stringformat:'d' }}</option>{% endfor %}
+    </select>
+    <div class="row row-cols-3 g-2">
+      {% for number in report_months %}<div class="col"><button type="button" data-report-month="{{ number }}" class="btn w-100 px-1 {% if number == selected_month %}btn-primary{% else %}btn-light{% endif %}" {% if number == selected_month %}aria-current="date"{% endif %}>Tháng {{ number }}</button></div>{% endfor %}
+    </div>
+    <p class="small text-secondary mt-3 mb-0">Chọn năm và tháng để cập nhật báo cáo.</p>
+  </div>
+</form>

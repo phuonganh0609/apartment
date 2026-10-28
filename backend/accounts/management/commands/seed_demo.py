@@ -223,7 +223,7 @@ class Command(BaseCommand):
         ]:
             Regulation.objects.get_or_create(
                 title=title,
-                defaults={"content": content, "document_type": "Nội quy demo"},
+                defaults={"content": content, "document_type": "Nội quy demo", "audience": "tenants"},
             )
         self.stdout.write(
             self.style.SUCCESS(

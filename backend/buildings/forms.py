@@ -1,3 +1,4 @@
+from django import forms
 from config.forms import StyledModelForm
 from .models import Amenity, Apartment, ApartmentAmenity, Building
 
@@ -9,9 +10,15 @@ class BuildingForm(StyledModelForm):
 
 
 class ApartmentForm(StyledModelForm):
+    def clean_photo_url(self):
+        value = self.cleaned_data.get("photo_url", "")
+        if value and not value.startswith("https://"):
+            raise forms.ValidationError("Ảnh công khai phải dùng đường dẫn HTTPS.")
+        return value
+
     class Meta:
         model = Apartment
-        fields = ["building", "code", "floor", "area", "rent", "status"]
+        fields = ["building", "code", "floor", "area", "rent", "status", "is_listed", "public_description", "photo_url"]
 
 
 class AmenityForm(StyledModelForm):

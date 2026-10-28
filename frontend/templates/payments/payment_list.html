@@ -1,1 +1,1 @@
-{% extends 'generic/list.html' %}
+{% extends 'generic/list.html' %}{% block content %}<div class="button-group d-flex flex-wrap gap-2" style="margin-bottom:20px"><a class="btn btn-secondary btn-outline-secondary" href="{% url 'payments:debt_list' %}">Xem công nợ</a><a class="btn btn-secondary btn-outline-secondary" href="{% url 'contracts:deposit_list' %}">Theo dõi tiền cọc</a><a class="btn btn-secondary btn-outline-secondary" href="{% url 'reports:revenue_report' %}">Báo cáo doanh thu</a></div>{{ block.super }}{% endblock %}

@@ -6,7 +6,8 @@ from .base import DomainTestCase
 
 class AuthTests(DomainTestCase):
     def test_anonymous_redirected(self):
-        response = self.client.get("/")
+        self.assertContains(self.client.get("/"), "Một nơi cho mọi")
+        response = self.client.get("/dashboard/")
         self.assertEqual(response.status_code, 302)
         self.assertIn("/accounts/login/", response.url)
 
@@ -50,7 +51,7 @@ class AuthTests(DomainTestCase):
             self.client.get(
                 f"/ai/contracts/{self.contract.pk}/summary/"
             ).status_code,
-            403,
+            200,
         )
         self.assertEqual(self.client.get("/maintenance/").status_code, 403)
 

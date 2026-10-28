@@ -4,6 +4,16 @@ from django.db import models
 
 
 class Contract(models.Model):
+    ai_authorized_users = models.ManyToManyField(
+        "accounts.User", blank=True, related_name="ai_contracts",
+        verbose_name="Người được sử dụng AI trên hợp đồng",
+        help_text="Chọn quản lý, nhân viên, kế toán hoặc Admin được phân công. Khách thuê tự có quyền tóm tắt hợp đồng của mình.",
+    )
+    class DepositStatus(models.TextChoices):
+        UNKNOWN = "unknown", "Chưa xác nhận"
+        PENDING = "pending", "Chưa thu"
+        COLLECTED = "collected", "Đã thu"
+        REFUNDED = "refunded", "Đã hoàn cọc"
     class Status(models.TextChoices):
         DRAFT = "draft", "Bản nháp"
         ACTIVE = "active", "Đã ký"
@@ -30,6 +40,10 @@ class Contract(models.Model):
         decimal_places=0,
         default=0,
         validators=[MinValueValidator(0)],
+    )
+    deposit_status = models.CharField(
+        "Tình trạng tiền cọc", max_length=20,
+        choices=DepositStatus.choices, default=DepositStatus.UNKNOWN,
     )
     status = models.CharField(
         "Trạng thái",

@@ -36,6 +36,7 @@ class Resource:
     deletable: bool = True
     saver: object = None
     queryset: object = None
+    scope: object = None
     form_options: object = None
     related: tuple = ()
     extra_context: object = None
@@ -70,12 +71,14 @@ def display(obj, name):
     return obj if obj is not None and obj != "" else "—"
 
 
-def queryset_for(resource):
+def queryset_for(resource, request):
     qs = (
         resource.queryset()
         if resource.queryset
         else resource.model.objects.all()
     )
+    if resource.scope:
+        qs = resource.scope(request.user, qs)
     if resource.related:
         qs = qs.select_related(*resource.related)
     return qs
@@ -94,7 +97,9 @@ def context_for(request, resource, obj=None):
         context.update(
             edit_url=resource.url("edit", obj),
             delete_url=(
-                resource.url("delete", obj) if resource.deletable else None
+                resource.url("delete", obj)
+                if resource.deletable and allowed(request.user, ("manager",))
+                else None
             ),
         )
     if resource.extra_context:
@@ -105,7 +110,7 @@ def context_for(request, resource, obj=None):
 def resource_urls(resource, prefix=""):
     @require_roles(*resource.read_roles)
     def listing(request):
-        qs = queryset_for(resource)
+        qs = queryset_for(resource, request)
         query = request.GET.get("q", "").strip()[:200]
         if query and resource.search:
             qs = qs.filter(
@@ -165,7 +170,7 @@ def resource_urls(resource, prefix=""):
 
     @require_roles(*resource.read_roles)
     def detail(request, pk):
-        obj = get_object_or_404(queryset_for(resource), pk=pk)
+        obj = get_object_or_404(queryset_for(resource, request), pk=pk)
         context = context_for(request, resource, obj)
         context["fields"] = [
             (f.verbose_name, display(obj, f.name))
@@ -189,7 +194,7 @@ def resource_urls(resource, prefix=""):
     @require_roles(*resource.write_roles)
     @require_http_methods(["GET", "POST"])
     def edit(request, pk=None):
-        obj = get_object_or_404(queryset_for(resource), pk=pk) if pk else None
+        obj = get_object_or_404(queryset_for(resource, request), pk=pk) if pk else None
         options = (
             resource.form_options(request, obj)
             if resource.form_options
@@ -243,9 +248,11 @@ def resource_urls(resource, prefix=""):
     @require_roles(*resource.write_roles)
     @require_http_methods(["GET", "POST"])
     def delete(request, pk):
+        if not allowed(request.user, ("manager",)):
+            raise PermissionDenied
         if not resource.deletable:
             raise Http404
-        obj = get_object_or_404(queryset_for(resource), pk=pk)
+        obj = get_object_or_404(queryset_for(resource, request), pk=pk)
         context = context_for(request, resource, obj)
         if request.method == "POST":
             try:

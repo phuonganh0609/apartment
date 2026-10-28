@@ -30,6 +30,9 @@ class Amenity(models.Model):
 
 
 class Apartment(models.Model):
+    is_listed = models.BooleanField("Đăng công khai cho thuê", default=False)
+    public_description = models.TextField("Mô tả công khai", blank=True, max_length=5000)
+    photo_url = models.URLField("Đường dẫn ảnh công khai (HTTPS)", blank=True)
     class Status(models.TextChoices):
         AVAILABLE = "available", "Sẵn sàng cho thuê"
         MAINTENANCE = "maintenance", "Đang bảo trì"

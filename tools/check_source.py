@@ -39,6 +39,8 @@ for app in apps:
         )
 expected = {
     "User",
+    "AuditEvent",
+    "SystemSettings",
     "Building",
     "Apartment",
     "Amenity",
@@ -62,8 +64,8 @@ print(
     (
         "PASS: syntax of "
         f"{len(files)}"
-        " Python files, 10 apps, exactly 12 "
-        "domain models, CSRF tags in POST fo"
+        " Python files, 10 apps, 14 "
+        "models, CSRF tags in POST fo"
         "rms."
     )
 )

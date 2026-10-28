@@ -5,6 +5,8 @@ import json
 import os
 import sys
 import time
+import subprocess
+import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -115,6 +117,16 @@ def main():
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     output = ROOT / "docs" / "ai_evidence" / ("prompt-" + stamp + ".json")
     records = []
+    revision = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
+    ).strip()
+    dirty = bool(subprocess.check_output(
+        ["git", "status", "--porcelain"], cwd=ROOT, text=True
+    ).strip())
+    prompt_hashes = {
+        name: hashlib.sha256(system.encode("utf-8")).hexdigest()
+        for name, system, _, _ in CASES
+    }
     failed = False
     # Three predefined variants, not claimed to be improvements from
     # observation.
@@ -170,6 +182,9 @@ def main():
                 json.dumps(
                     {
                         "timestamp_utc": stamp,
+                        "git_revision": revision,
+                        "working_tree_dirty": dirty,
+                        "prompt_sha256": prompt_hashes,
                         "provider": settings.AI_PROVIDER,
                         "model": settings.AI_MODEL,
                         "synthetic_data_only": True,

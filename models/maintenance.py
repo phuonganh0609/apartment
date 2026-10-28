@@ -22,6 +22,10 @@ class MaintenanceRequest(models.Model):
         verbose_name="Căn hộ",
     )
     content = models.TextField("Nội dung yêu cầu", max_length=10000)
+    submitted_by = models.ForeignKey(
+        "accounts.User", null=True, blank=True, on_delete=models.SET_NULL,
+        related_name="submitted_maintenance", verbose_name="Người gửi",
+    )
     created_at = models.DateTimeField("Ngày tạo", auto_now_add=True)
     priority = models.CharField(
         "Mức độ ưu tiên",

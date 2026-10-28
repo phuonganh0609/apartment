@@ -1,0 +1,6 @@
+Bạn đã yêu cầu đặt lại mật khẩu tài khoản Nestora.
+
+Mở liên kết sau để chọn mật khẩu mới (có hiệu lực 30 phút):
+{{ protocol }}://{{ domain }}{% url 'accounts:password_reset_confirm' uidb64=uid token=token %}
+
+Nếu bạn không yêu cầu, hãy bỏ qua email này. Không chia sẻ liên kết với người khác.

@@ -57,3 +57,5 @@ class DomainTestCase(TestCase):
                 "ồng."
             ),
         )
+
+        cls.contract.ai_authorized_users.add(cls.manager, cls.staff, cls.accountant)

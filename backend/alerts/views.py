@@ -7,7 +7,7 @@ from accounts.permissions import (
     allowed,
     require_roles,
 )
-from .services import expiring_contracts, overdue_payments
+from .services import expiring_contracts, overdue_payments, upcoming_payments
 
 
 @require_roles(*ALL)
@@ -21,6 +21,7 @@ def alerts(request):
         "alerts/alert_list.html",
         {
             "title": "Cảnh báo cần xử lý",
+            "upcoming": upcoming_payments() if allowed(request.user, FINANCE) else [],
             "expiring": Paginator(contracts, 12).get_page(
                 request.GET.get("contracts_page")
             ),

@@ -17,6 +17,8 @@ class StyledModelForm(forms.ModelForm):
                 (
                     "form-check-input"
                     if isinstance(field.widget, forms.CheckboxInput)
+                    else "form-select"
+                    if isinstance(field.widget, forms.Select)
                     else "form-control"
                 ),
             )

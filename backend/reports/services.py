@@ -25,6 +25,10 @@ def finance_metrics(month):
     )
     return {
         "month": start.strftime("%Y-%m"),
+        "selected_month": start.month,
+        "selected_year": start.year,
+        "report_months": range(1, 13),
+        "report_years": range(max(1, min(start.year, timezone.localdate().year) - 5), min(9999, max(start.year, timezone.localdate().year) + 5) + 1),
         "revenue": paid.aggregate(total=Sum("amount"))["total"] or 0,
         "rent_revenue": paid.filter(kind="rent").aggregate(
             total=Sum("amount")
