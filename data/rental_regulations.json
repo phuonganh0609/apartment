@@ -1,0 +1,122 @@
+[
+  {
+    "code": "NT-01", "title": "Hướng dẫn đăng ký thuê và ký hợp đồng", "audience": "public",
+    "sections": [
+      "1. Phạm vi: Áp dụng cho các căn hộ do đơn vị vận hành Nestora quản lý trong hệ thống demo. Khách xem danh sách căn hộ, ảnh minh họa, diện tích, giá thuê và tiện ích trên trang công khai; liên hệ quản lý để xác nhận tình trạng căn và đặt lịch xem. Giá hiển thị chưa bao gồm phí quản lý, điện nước và gửi xe nếu hợp đồng không ghi khác.",
+      "2. Hồ sơ: Khách đăng ký tài khoản; cung cấp thông tin liên hệ và giấy tờ nhận diện cho nhân sự có thẩm quyền qua kênh được thống nhất. Không gửi CCCD, mật khẩu, thông tin ngân hàng vào chatbot. Nhân viên lập hồ sơ khách thuê; quản lý xác minh và liên kết hồ sơ với tài khoản. Đăng ký tài khoản không đồng nghĩa đã giữ chỗ hoặc đã thuê căn hộ.",
+      "3. Ký kết: Hai bên xác nhận căn hộ, thời hạn, tiền thuê, phí, tiền cọc và nội dung hợp đồng trước khi ký. Không ký hai hợp đồng trùng khoảng thời gian cho cùng căn hộ; không bàn giao căn đang bảo trì. Hợp đồng trên hệ thống chuyển sang Đã ký sau khi hai bên hoàn tất ký kết; lưu bản nháp không tạo quyền nhận bàn giao.",
+      "4. Bàn giao: Chỉ bàn giao sau khi xác nhận hợp đồng và đối soát các nghĩa vụ đến hạn theo thỏa thuận. Khi có chênh lệch, điều khoản đã ký được ưu tiên trong phạm vi pháp luật áp dụng; quản lý phải kiểm tra bản gốc, không dùng câu trả lời AI để thay đổi hợp đồng."
+    ],
+    "question": "Đăng ký tài khoản có giữ chỗ căn hộ không?", "expected": "Không; cần xác nhận với quản lý và hoàn tất thỏa thuận thuê."
+  },
+  {
+    "code": "NT-02", "title": "Tiền thuê, phí quản lý và hạn thanh toán", "audience": "tenants",
+    "sections": [
+      "1. Hạn thanh toán tiền thuê và phí quản lý là ngày 05 mỗi tháng theo hợp đồng demo. Tiền thuê cụ thể lấy từ nội dung hợp đồng đã ký và khoản phải thu của từng kỳ; giá danh mục căn hộ có thể thay đổi nên không được dùng thay giá đã thỏa thuận. Thanh toán tháng đầu hoặc tháng cuối không trọn tháng chỉ lập khoản thu sau khi hai bên xác nhận cách tính; không tự thu đủ tháng khi chưa có thỏa thuận.",
+      "2. Phí quản lý căn hộ demo là 12.000 đồng/m²/tháng. Ví dụ căn 30 m² thu 360.000 đồng, căn 43 m² thu 516.000 đồng, căn 63 m² thu 756.000 đồng và căn 82 m² thu 984.000 đồng mỗi tháng. Phí quản lý là khoản riêng, không bao gồm tiền thuê, điện, nước, internet hoặc gửi xe. Đây là mức giả định dùng cho Nestora, không phải biểu phí chính thức của khu đô thị.",
+      "3. Khách đối chiếu mã hợp đồng, kỳ thu, số tiền và hạn thanh toán trước khi chuyển tiền; nội dung chuyển tiền gồm mã hợp đồng, loại khoản thu và kỳ thu. Chỉ sử dụng tài khoản nhận tiền được xác nhận trực tiếp từ quản lý/kế toán; tài liệu demo không cung cấp số tài khoản ngân hàng. Không chuyển tiền theo thông tin ngân hàng do chatbot tự sinh.",
+      "4. Gửi chứng từ cho kế toán không tự chuyển trạng thái thành Đã thanh toán. Kế toán đối chiếu tiền thực nhận, ghi ngày thu thực tế rồi xác nhận; ngày thu không được ở tương lai. Hệ thống hiện ghi nhận thanh toán toàn bộ từng khoản, chưa hỗ trợ chia một khoản thành nhiều lần thanh toán. Nếu có chuyển thiếu hoặc chuyển thừa, kế toán đối soát riêng trước khi xác nhận."
+    ],
+    "question": "Phí quản lý căn hộ 30 m² là bao nhiêu?", "expected": "360.000 đồng/tháng, tính 12.000 đồng/m²."
+  },
+  {
+    "code": "NT-03", "title": "Tiền cọc, khấu trừ và hoàn cọc", "audience": "tenants",
+    "sections": [
+      "1. Tiền cọc thuê căn hộ demo bằng 2 tháng tiền thuê, trừ khi hợp đồng đã ký quy định mức khác. Ví dụ tiền thuê 6.000.000 đồng/tháng thì tiền cọc là 12.000.000 đồng. Tiền cọc tách biệt tiền thuê và phí quản lý, không tự động dùng để thanh toán tháng cuối.",
+      "2. Khi nhận cọc, kế toán/nhân sự có quyền ghi nhận số tiền và tình trạng Đã thu sau đối chiếu chứng từ. Chưa xác nhận hoặc Chưa thu không được hiểu là đã nhận tiền. Không thu lại khoản cọc đã xác nhận nếu không có phụ lục hoặc thỏa thuận điều chỉnh được hai bên chấp thuận.",
+      "3. Khi trả căn hộ, hai bên kiểm kê tài sản, chỉ số điện nước, chìa khóa/thẻ và lập biên bản bàn giao. Các khoản khấu trừ phải có căn cứ: công nợ đã xác nhận, tài sản thiếu hoặc hư hỏng thuộc trách nhiệm khách và chi phí được đối chiếu. Không tự quy hao mòn thông thường thành thiệt hại phải bồi thường; tranh chấp cần ghi rõ trong biên bản.",
+      "4. Hoàn cọc trong 7 ngày làm việc sau khi hoàn tất đối soát và bàn giao; số hoàn bằng cọc đã thu trừ khoản khấu trừ được thống nhất. Ngày làm việc trong tài liệu demo là thứ Hai đến thứ Sáu, không gồm ngày nghỉ lễ được thông báo. Nếu còn hóa đơn chưa có số liệu, hai bên phải xác nhận bằng văn bản phần giữ lại và thời hạn xử lý, không mặc định giữ toàn bộ tiền cọc vô thời hạn."
+    ],
+    "question": "Hoàn cọc trong bao lâu?", "expected": "Trong 7 ngày làm việc sau khi hoàn tất đối soát và bàn giao."
+  },
+  {
+    "code": "NT-04", "title": "Gia hạn, chấm dứt và trả căn hộ", "audience": "tenants",
+    "sections": [
+      "1. Khách thông báo nhu cầu gia hạn hoặc không tiếp tục thuê ít nhất 30 ngày trước ngày hết hạn hợp đồng. Thông báo qua kênh liên hệ quản lý đã được xác nhận; lưu lại nội dung và thời điểm phản hồi. Email nhắc gia hạn chỉ là lời nhắc, không tự làm kéo dài thời hạn hợp đồng.",
+      "2. Gia hạn cần hai bên thống nhất thời hạn mới, tiền thuê và các thay đổi; quản lý kiểm tra lịch thuê để tránh trùng hợp đồng trước khi cập nhật. Chỉ gia hạn hợp đồng Đã ký, chưa thanh lý; ngày kết thúc mới phải sau ngày kết thúc hiện tại và sau ngày thực hiện thao tác. Không thu thêm cọc khi chưa có thỏa thuận điều chỉnh.",
+      "3. Khách muốn chấm dứt trước hạn cần liên hệ quản lý, đề xuất ngày trả căn và đối chiếu điều khoản đã ký. Tài liệu này không đặt một mức phạt chung cho mọi hợp đồng. Các khoản bồi thường hoặc khấu trừ cần căn cứ thỏa thuận, chứng từ và quy định áp dụng; chatbot không được tự tính mức phạt khi thiếu nội dung hợp đồng.",
+      "4. Khi trả căn hộ, đặt lịch kiểm kê, hoàn trả chìa khóa/thẻ, xác nhận điện nước, tài sản và công nợ. Sau xác nhận, nhân sự có quyền thanh lý hợp đồng trên hệ thống. Thanh lý không xóa các khoản nợ và không đồng nghĩa đã hoàn cọc; việc hoàn cọc theo NT-03. Căn cần sửa chữa được chuyển sang bảo trì trước khi cho thuê lại."
+    ],
+    "question": "Muốn gia hạn hợp đồng cần báo trước bao lâu?", "expected": "Ít nhất 30 ngày trước ngày hết hạn."
+  },
+  {
+    "code": "NT-05", "title": "Nội quy sinh hoạt, tiếng ồn và thú cưng", "audience": "tenants",
+    "sections": [
+      "1. Giờ yên tĩnh từ 22:00 đến 06:00 hằng ngày. Trong giờ yên tĩnh không mở nhạc lớn, kéo đồ gây ồn hoặc tổ chức hoạt động ảnh hưởng căn bên cạnh. Ngoài khung giờ này vẫn phải giữ âm lượng phù hợp; quy định không có nghĩa được gây ồn tùy ý vào ban ngày.",
+      "2. Không hút thuốc tại thang máy, hành lang kín và khu vực có biển cấm; không để giày dép, tủ, xe đẩy hoặc vật dụng chắn hành lang và lối thoát hiểm. Không tự ý thay khóa, khoan kết cấu chịu lực, thay đổi hệ thống điện nước hoặc lắp thêm thiết bị công suất lớn khi chưa được quản lý chấp thuận.",
+      "3. Nuôi thú cưng phải đăng ký với quản lý và phù hợp điều khoản hợp đồng. Chủ nuôi dắt dây, vệ sinh khu vực chung và chịu trách nhiệm xử lý ảnh hưởng do thú cưng gây ra; không thả rông, không đưa thú cưng vào hồ bơi. Không mặc định mọi loại thú cưng đều được chấp thuận.",
+      "4. Phản ánh vi phạm qua quản lý, nêu thời điểm, vị trí và mô tả; không công khai dữ liệu cá nhân của cư dân khác trên nhóm chung. Quản lý ghi nhận, xác minh và trao đổi biện pháp xử lý theo nội quy/hợp đồng; không để chatbot tự áp dụng tiền phạt."
+    ],
+    "question": "Giờ yên tĩnh là khi nào?", "expected": "22:00 đến 06:00 hằng ngày."
+  },
+  {
+    "code": "NT-06", "title": "Báo hỏng, bảo trì và sửa chữa trong căn hộ", "audience": "tenants",
+    "sections": [
+      "1. Báo hỏng trên cổng khách thuê: đăng nhập, mở Báo hỏng và bảo trì, chọn căn đang thuê, nhập thiết bị/vị trí hỏng, hiện tượng và mức độ ưu tiên rồi gửi. Khách chỉ gửi yêu cầu cho căn có hợp đồng đang hiệu lực của mình; khi không gửi được, liên hệ quản lý để kiểm tra liên kết hồ sơ và thời hạn thuê.",
+      "2. Bộ phận bảo trì tiếp nhận yêu cầu thông thường 08:00–17:00 từ thứ Hai đến thứ Bảy. Thời gian phản hồi ban đầu trong 24 giờ làm việc; đây là thời hạn tiếp nhận/trao đổi lịch kiểm tra, không phải cam kết hoàn thành sửa chữa. Không tự ý tháo thiết bị điện hoặc sửa đường ống chung.",
+      "3. Rò nước lớn, chập điện hoặc nguy cơ mất an toàn cần liên hệ trực tiếp lực lượng trực tòa nhà ngay, không chờ phản hồi trên chatbot. Nếu an toàn mới ngắt thiết bị hoặc khóa van cục bộ; không tự thao tác khi có nguy cơ điện giật, khói hoặc lửa. Tài liệu demo không cung cấp số trực khẩn cấp giả.",
+      "4. Nhân viên hẹn giờ và được khách xác nhận trước khi vào căn, trừ tình huống khẩn cấp được xử lý theo quy trình tòa nhà. Chi phí sửa chữa xác định sau kiểm tra: phân biệt hao mòn tự nhiên, hỏng thiết bị bàn giao và lỗi sử dụng; báo giá và thống nhất trước khi thực hiện hạng mục tính phí. Khách theo dõi trạng thái Mới tiếp nhận, Đang xử lý, Hoàn thành và ghi chú phản hồi trên hệ thống."
+    ],
+    "question": "Bảo trì phản hồi yêu cầu sửa chữa trong bao lâu?", "expected": "Trong 24 giờ làm việc; không phải thời hạn hoàn thành sửa chữa."
+  },
+  {
+    "code": "NT-07", "title": "Thẻ cư dân, khách đến thăm và chuyển đồ", "audience": "tenants",
+    "sections": [
+      "1. Khách đến thăm đăng ký tại lễ tân và được cư dân xác nhận trước khi lên căn hộ. Khách ở qua đêm cần được người thuê thông báo cho quản lý trước 22:00 theo nội quy demo. Việc thông báo nội bộ không thay thế thủ tục cư trú nếu có yêu cầu; quản lý hướng dẫn theo tình huống cụ thể.",
+      "2. Không cho mượn thẻ cư dân để người ngoài tự do ra vào. Mất thẻ phải báo lễ tân ngay để khóa thẻ cũ. Phí cấp lại thẻ demo 100.000 đồng/thẻ; dự kiến cấp trong 2 ngày làm việc sau khi xác minh người thuê và hoàn tất thủ tục. Không công khai mã truy cập hoặc ảnh thẻ trên chatbot.",
+      "3. Chuyển đồ cần đăng ký với quản lý trước ít nhất 24 giờ. Khung chuyển đồ 09:00–11:00 và 14:00–16:00 từ thứ Hai đến thứ Bảy; chỉ thực hiện khi lịch thang máy hàng đã được xác nhận. Bảo vệ bề mặt thang máy, không chắn lối thoát hiểm, thu dọn vật liệu bao gói sau vận chuyển.",
+      "4. Lễ tân tiếp nhận bưu phẩm 08:00–20:00; cư dân nhận trong 48 giờ sau thông báo và xác minh thông tin. Không nhận hộ hàng COD, hàng đông lạnh hoặc dễ hư hỏng. Khách trực tiếp hẹn người giao hàng đối với các loại hàng này."
+    ],
+    "question": "Chuyển đồ cần đăng ký trước bao lâu?", "expected": "Ít nhất 24 giờ và chờ xác nhận lịch."
+  },
+  {
+    "code": "NT-08", "title": "Đăng ký gửi xe và dịch vụ riêng", "audience": "tenants",
+    "sections": [
+      "1. Phí gửi xe demo: xe máy 120.000 đồng/xe/tháng, ô tô 1.200.000 đồng/xe/tháng, xe đạp 30.000 đồng/xe/tháng. Giá này là giả định học tập, không đại diện biểu phí của khu đô thị. Mỗi căn đăng ký tối đa 2 xe máy và 1 ô tô, phụ thuộc chỗ trống và xác nhận của đơn vị vận hành; đăng ký không bảo đảm được cấp chỗ ngay.",
+      "2. Khi đăng ký gửi xe, cung cấp biển số/đặc điểm xe qua kênh quản lý đã xác nhận. Đỗ đúng vị trí, không cản lối ra vào hoặc khu vực chữa cháy. Không sạc xe tại hành lang hoặc ổ điện không được phép; chỉ sử dụng khu vực, thiết bị sạc được đơn vị vận hành chấp thuận.",
+      "3. Phí gửi xe tách biệt tiền thuê và phí quản lý; việc gửi xe được đối chiếu theo kỳ đăng ký. Điện, nước và internet thanh toán riêng theo hóa đơn hoặc hợp đồng dịch vụ; tài liệu demo không ấn định đơn giá điện/nước và không tính gộp vào phí 12.000 đồng/m².",
+      "4. Khách muốn ngừng gửi xe thông báo trước kỳ tiếp theo để quản lý xác nhận thời điểm ngừng và đối soát phí còn lại. Khoản thu tháng không trọn kỳ cần có thỏa thuận rõ, không tự suy ra từ câu trả lời chatbot."
+    ],
+    "question": "Phí gửi xe máy mỗi tháng là bao nhiêu?", "expected": "120.000 đồng/xe/tháng theo biểu phí demo."
+  },
+  {
+    "code": "NT-09", "title": "Tiện ích chung, phòng sinh hoạt và vệ sinh", "audience": "tenants",
+    "sections": [
+      "1. Hồ bơi demo mở 06:00–21:00 hằng ngày, riêng thứ Hai bảo dưỡng 06:00–10:00 nên mở lại từ 10:00. Trẻ em dưới 12 tuổi cần người lớn đi cùng; không mang đồ ăn, chai thủy tinh hoặc thú cưng vào hồ bơi. Lịch có thể thay đổi theo thông báo bảo dưỡng được quản lý xác nhận.",
+      "2. Phòng tập gym mở 05:30–22:00. Cư dân đã đăng ký được sử dụng miễn phí trong mô hình demo; mang giày thể thao, lau thiết bị sau khi tập, không đưa khách ngoài vào bằng thẻ cư dân. Dừng sử dụng thiết bị có dấu hiệu hỏng và báo quản lý.",
+      "3. Phòng sinh hoạt cộng đồng đăng ký trước ít nhất 2 ngày; tối đa 2 giờ mỗi lần trong khung 08:00–21:00, sức chứa tối đa 20 người. Chỉ sử dụng sau xác nhận lịch; hoàn trả bàn ghế và vệ sinh sau hoạt động, không gây ảnh hưởng giờ yên tĩnh.",
+      "4. Phân loại rác tái chế và rác sinh hoạt. Rác sinh hoạt buộc kín túi, đưa tới phòng rác đúng vị trí trong khung 06:00–09:00 hoặc 18:00–21:00; không để rác ở hành lang/cầu thang. Rác cồng kềnh và vật sắc nhọn cần liên hệ quản lý để được hướng dẫn, không đổ trực tiếp vào thùng rác sinh hoạt."
+    ],
+    "question": "Hồ bơi có mở sáng thứ Hai không?", "expected": "Bảo dưỡng 06:00–10:00, mở lại từ 10:00."
+  },
+  {
+    "code": "NV-01", "title": "Quy trình kiểm kê và bàn giao căn hộ", "audience": "internal",
+    "sections": [
+      "1. Nhân viên chuẩn bị biên bản ghi mã hợp đồng, căn hộ, thời điểm bàn giao và người tham gia. Kiểm tra trạng thái vận hành, vệ sinh, khóa cửa, hệ thống điện nước và danh mục thiết bị. Ghi số lượng, tình trạng, ảnh hiện trạng và chỉ số công tơ; không dùng ảnh minh họa công khai làm bằng chứng hiện trạng bàn giao.",
+      "2. Hai bên xác nhận từng hạng mục điều hòa, bình nóng lạnh, tủ lạnh, máy giặt, giường, tủ và bếp theo danh mục của căn hộ. Thiết bị thiếu hoặc cần sửa phải ghi rõ trách nhiệm và lịch xử lý; không ghi Hoạt động tốt khi chưa kiểm tra. Bàn giao số lượng chìa khóa/thẻ và hướng dẫn báo hỏng.",
+      "3. Khi nhận lại căn, đối chiếu biên bản đầu vào, phân biệt hao mòn và hư hỏng phát sinh, lập danh sách khoản cần xác minh. Chuyển dữ liệu cho kế toán đối soát; không tự ý sửa trạng thái khoản thu. Căn chưa đủ điều kiện vận hành phải chuyển bảo trì và ngừng đăng cho thuê đến khi nghiệm thu.",
+      "4. Hồ sơ gồm biên bản, danh mục thiết bị, ảnh hiện trạng và xác nhận các bên. Tài liệu nội bộ chỉ nhân sự được phép xem; không đưa bản chứa CCCD, số tài khoản hoặc thông tin riêng của cư dân vào nội quy công khai. Mẫu biên bản phải được điền từ thực tế, không coi tài liệu demo là chứng từ đã ký."
+    ],
+    "question": "Kiểm kê bàn giao có ghi chỉ số công tơ không?", "expected": "Có; ghi số lượng, tình trạng tài sản, ảnh hiện trạng và chỉ số công tơ."
+  },
+  {
+    "code": "KT-01", "title": "Đối soát khoản thu, công nợ và tiền cọc", "audience": "finance",
+    "sections": [
+      "1. Kế toán lập khoản phải thu gắn đúng hợp đồng, loại Tiền thuê hoặc Phí dịch vụ, số tiền dương và hạn thanh toán. Không lập khoản thu cho hợp đồng Bản nháp. Mỗi hợp đồng không trùng loại khoản thu và ngày đến hạn; khoản thu không tự được coi là đã thu chỉ vì email nhắc nợ đã gửi.",
+      "2. Khoản Chưa thanh toán có công nợ bằng toàn bộ số tiền và không có ngày thu. Khoản Đã thanh toán phải có ngày thực nhận tiền, không ở tương lai, và công nợ bằng 0. Bản demo chưa hỗ trợ thanh toán một phần; giao dịch thiếu/thừa cần đối soát trước khi xác nhận. Không thay ngày thu bằng ngày gửi email hoặc ngày lập khoản thu.",
+      "3. Báo cáo doanh thu theo ngày thu thực tế; tiền cọc là khoản theo dõi riêng, không cộng vào doanh thu thuê. Thanh lý hợp đồng không xóa công nợ. Hoàn cọc cần đối chiếu cọc đã thu, khoản khấu trừ được chấp thuận và biên bản bàn giao, sau đó mới xác nhận Đã hoàn cọc.",
+      "4. Trước khi gửi nhắc thanh toán, kiểm tra khách, hợp đồng, khoản còn nợ, số tiền và hạn thanh toán; sửa bản nháp AI nếu sai. Không gửi nhắc nợ cho khoản đã thanh toán. Gửi email là một thao tác riêng, không sửa trạng thái thanh toán hoặc thời hạn hợp đồng; lưu dấu vết đối soát để xử lý khiếu nại."
+    ],
+    "question": "Tiền cọc có tính vào doanh thu thuê không?", "expected": "Không; theo dõi tiền cọc riêng, doanh thu theo ngày thu thực tế."
+  },
+  {
+    "code": "NT-10", "title": "Tra cứu hợp đồng, email thông báo và bảo vệ thông tin", "audience": "tenants",
+    "sections": [
+      "1. Khách đăng nhập cổng khách thuê để xem Hợp đồng của tôi, Thanh toán và công nợ, Báo hỏng và bảo trì. Chỉ dữ liệu gắn với hồ sơ khách thuê đã liên kết mới được hiển thị. Nếu chưa thấy hợp đồng, đề nghị quản lý kiểm tra hồ sơ và liên kết tài khoản; không tạo lại hợp đồng chỉ để xử lý lỗi liên kết.",
+      "2. AI tóm tắt hợp đồng chỉ hỗ trợ đọc nhanh các mục thời hạn, tiền thuê, tiền cọc, nghĩa vụ thanh toán và chấm dứt. Khi có sai khác, đối chiếu bản hợp đồng đã ký và liên hệ quản lý; bản tóm tắt không sửa điều khoản và không thay thế xác nhận của hai bên.",
+      "3. Email nhắc thanh toán hoặc gia hạn do nhân sự có quyền kiểm tra và chủ động gửi sau khi AI soạn bản nháp. Email nhắc không phải xác nhận đã thanh toán hay đã gia hạn. Khách kiểm tra mã hợp đồng, kỳ thu, ngày hết hạn và liên hệ quản lý nếu không khớp. Không gửi mật khẩu hoặc mã xác thực cho người tự xưng là quản lý.",
+      "4. Chatbot tra cứu tài liệu đang áp dụng theo quyền người dùng, kèm trích đoạn nguồn; không truy cập hộp thư cá nhân và không tự xác nhận giao dịch ngân hàng. Khi không có tài liệu phù hợp, chatbot phải báo thiếu thông tin. Không yêu cầu tiết lộ hợp đồng, CCCD hoặc công nợ của khách khác."
+    ],
+    "question": "Gửi email nhắc gia hạn có tự gia hạn hợp đồng không?", "expected": "Không; cần hai bên thống nhất và nhân sự có quyền cập nhật."
+  }
+]

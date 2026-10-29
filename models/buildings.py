@@ -30,6 +30,15 @@ class Amenity(models.Model):
 
 
 class Apartment(models.Model):
+    local_photo = models.CharField("Ảnh minh họa cục bộ", max_length=255, blank=True, editable=False)
+
+    @property
+    def photo_src(self):
+        if self.local_photo:
+            from django.templatetags.static import static
+            return static(self.local_photo)
+        return self.photo_url
+
     is_listed = models.BooleanField("Đăng công khai cho thuê", default=False)
     public_description = models.TextField("Mô tả công khai", blank=True, max_length=5000)
     photo_url = models.URLField("Đường dẫn ảnh công khai (HTTPS)", blank=True)

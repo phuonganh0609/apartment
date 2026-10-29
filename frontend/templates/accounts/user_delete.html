@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="panel card border-0 shadow-sm form-panel">
+  <h2>Xác nhận xóa tài khoản</h2>
+  <p>Bạn đang xóa tài khoản <strong>{{ object.username }}</strong> — {{ object.full_name }}.</p>
+  <p>Tài khoản sẽ không thể đăng nhập. Hồ sơ khách thuê, hợp đồng, khoản thu và yêu cầu bảo trì vẫn được giữ lại; liên kết với tài khoản này sẽ bị gỡ. Thao tác xóa không thể hoàn tác từ giao diện.</p>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-actions d-flex flex-wrap justify-content-end gap-2">
+      <a class="btn btn-outline-secondary" href="{% url 'accounts:user_detail' object.pk %}">Hủy</a>
+      <button class="btn btn-danger" type="submit">Xác nhận xóa tài khoản</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

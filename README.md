@@ -100,6 +100,23 @@ Tài khoản quản lý ứng dụng không tự có quyền Django Admin. Muố
 
 ## Cấu hình Google Gemini API
 
+### Dữ liệu demo bổ sung
+
+Sau khi migrate, có thể tạo đủ 5 tài khoản demo, dữ liệu thuê, ảnh minh họa và tài liệu chatbot:
+
+```powershell
+.venv/Scripts/python.exe -X utf8 manage.py seed_realistic_demo
+.venv/Scripts/python.exe -X utf8 manage.py seed_apartment_photos
+.venv/Scripts/python.exe -X utf8 manage.py seed_rental_regulations
+```
+
+Các lệnh chỉ chạy khi `DEBUG=True`, giữ dữ liệu và mật khẩu đã tồn tại.
+Mật khẩu tài khoản mới được in khi tạo; không có mật khẩu cố định trong mã nguồn.
+Chi tiết: [dữ liệu thuê demo](docs/realistic_demo.md), [tài liệu quy định](docs/rental_regulations_demo.md).
+Cơ sở dữ liệu cục bộ, tệp `.env` và thông tin SMTP/API không được đưa lên Git.
+
+### Thiết lập Gemini
+
 Sửa `.env` cục bộ:
 
 ```dotenv
@@ -116,7 +133,7 @@ AI_MAX_INPUT_CHARS=24000
 Không có model/khóa API thì giao diện hiển thị AI chưa cấu hình, không tạo kết quả giả. Các chức năng quản lý vẫn hoạt động. Mỗi tài khoản có giới hạn cơ bản 10 yêu cầu AI/phút; timeout 30 giây; dữ liệu và phản hồi được giới hạn kích thước.
 
 - **Tóm tắt:** mở hợp đồng → AI tóm tắt → xem bản nội dung sẽ gửi → bấm tóm tắt. Các giá trị cá nhân đã biết của khách thuê được che trước khi gửi. Việc che không bảo đảm phát hiện mọi thông tin cá nhân tự do trong văn bản; người dùng có thể kiểm tra bản xem trước.
-- **Thông báo:** từ hợp đồng soạn nhắc gia hạn; từ khoản thanh toán soạn nhắc thanh toán. Kết quả là bản nháp có thể sửa/sao chép; ứng dụng không tự gửi email.
+- **Thông báo:** từ hợp đồng soạn nhắc gia hạn; từ khoản thanh toán soạn nhắc thanh toán. Sau khi AI tạo bản nháp, kiểm tra/sửa email người nhận, tiêu đề và nội dung rồi bấm **Gửi email**. Ứng dụng gửi qua SMTP trong `.env`, ghi nhật ký và chặn gửi lặp bản nháp đã gửi. Nếu SMTP lỗi, nội dung chỉnh sửa được giữ lại. Email demo `example.com` cần đổi thành hộp thư kiểm thử của bạn. Việc SMTP tiếp nhận không bảo đảm thư đã vào hộp thư đến.
 - **Chatbot:** hỏi quy định → tìm đoạn liên quan trong quy định đang áp dụng và tệp đính kèm → gọi AI → kiểm tra ID nguồn → hiển thị câu trả lời và trích đoạn nguồn. Không có đoạn phù hợp thì báo thiếu thông tin và không gọi API.
 
 RAG hiện dùng tìm kiếm từ khóa tiếng Việt bỏ dấu, chia đoạn có chồng lấn; không cần vector database. Đây là lựa chọn gọn cho dữ liệu đồ án, chưa tối ưu cho kho tài liệu rất lớn. PDF ảnh quét cần OCR bên ngoài trước khi tải lên.

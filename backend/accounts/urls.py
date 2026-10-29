@@ -3,10 +3,11 @@ from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, 
 from django.urls import reverse_lazy
 from django.urls import path
 from config.crud import resource_urls
-from .views import ThrottledLoginView, users, profile, ResetPasswordView
+from .views import ThrottledLoginView, users, profile, ResetPasswordView, delete_account
 
 app_name = "accounts"
 urlpatterns = [
+    path('users/<int:pk>/delete/', delete_account, name='user_delete'),
     path("password-reset/", ResetPasswordView.as_view(
         template_name="accounts/reset_request.html",
         email_template_name="accounts/reset_email.txt",

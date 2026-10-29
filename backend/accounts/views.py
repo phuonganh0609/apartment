@@ -129,6 +129,39 @@ class ThrottledLoginView(LoginView):
         return super().form_invalid(form)
 
 
+def account_delete_context(request, obj):
+    from django.urls import reverse
+    return {'delete_url': reverse('accounts:user_delete', args=[obj.pk])
+            if obj and request.user.is_superuser and obj.pk != request.user.pk else None}
+
+
+@login_required
+@require_http_methods(['GET', 'POST'])
+def delete_account(request, pk):
+    from django.core.exceptions import PermissionDenied
+    from django.shortcuts import get_object_or_404
+    from django.db import transaction
+    from .models import User, AuditEvent
+
+    if not request.user.is_active or not request.user.is_superuser:
+        raise PermissionDenied
+    if pk == request.user.pk:
+        raise PermissionDenied('Không thể tự xóa tài khoản đang đăng nhập.')
+    account = get_object_or_404(User, pk=pk)
+    if request.method == 'POST':
+        with transaction.atomic():
+            account = get_object_or_404(User.objects.select_for_update(), pk=pk)
+            username = account.username
+            account.delete()
+            AuditEvent.objects.create(actor=request.user.username,
+                action='account_deleted', detail=f'Đã xóa tài khoản {username} (ID {pk}).')
+        messages.success(request, 'Đã xóa tài khoản. Hồ sơ khách thuê và dữ liệu nghiệp vụ vẫn được giữ lại.')
+        return redirect('accounts:user_list')
+    return render(request, 'accounts/user_delete.html', {
+        'title': 'Xóa tài khoản', 'object': account,
+    })
+
+
 users = Resource(
     User,
     UserForm,
@@ -145,6 +178,7 @@ users = Resource(
     read_roles=("manager",),
     write_roles=("manager",),
     deletable=False,
+    extra_context=account_delete_context,
     filters=(("role", "Vai trò", User.Role.choices),),
     form_options=lambda request, obj: {"actor": request.user},
     order_fields=("pk", "username", "full_name"),

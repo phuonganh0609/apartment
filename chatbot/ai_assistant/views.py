@@ -4,6 +4,12 @@ from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
+from django.contrib import messages
+from django.core.mail import EmailMessage
+from django.urls import reverse
+import secrets
+import smtplib
+from accounts.models import AuditEvent
 from django.views.decorators.http import require_http_methods
 
 from accounts.permissions import (
@@ -56,6 +62,19 @@ def summary(request, pk):
     return render(request, "ai_assistant/contract_summary.html", context)
 
 
+class NotificationEmailForm(forms.Form):
+    recipient = forms.EmailField(label="Email người nhận", widget=forms.EmailInput(attrs={"class": "form-control"}))
+    subject = forms.CharField(label="Tiêu đề", max_length=255, widget=forms.TextInput(attrs={"class": "form-control", "id": "draft-subject"}))
+    body = forms.CharField(label="Nội dung có thể chỉnh sửa", max_length=12000, widget=forms.Textarea(attrs={"class": "form-control", "rows": 12, "id": "draft-body"}))
+    draft_token = forms.CharField(widget=forms.HiddenInput)
+
+    def clean_subject(self):
+        subject = self.cleaned_data['subject']
+        if '\r' in subject or '\n' in subject:
+            raise forms.ValidationError('Tiêu đề phải nằm trên một dòng.')
+        return subject
+
+
 @require_roles(*ALL)
 @require_http_methods(["GET", "POST"])
 def notification(request, pk):
@@ -79,12 +98,50 @@ def notification(request, pk):
     context["payment"] = payment
     if not can_notify(request.user, payment=payment is not None):
         raise PermissionDenied
+    draft_key = f"notification-draft:{contract.pk}:{payment.pk if payment else 'renewal'}"
     if request.method == "POST":
-        try:
-            throttle(request.user)
-            context["result"] = generate_notification(contract, payment)
-        except AIError as exc:
-            context["error"] = str(exc)
+        if request.POST.get('action') == 'send':
+            form = NotificationEmailForm(request.POST)
+            context['email_form'] = form
+            if form.is_valid():
+                token = form.cleaned_data['draft_token']
+                lock = f"notification-send:{request.user.pk}:{token}"
+                if token != request.session.get(draft_key):
+                    form.add_error(None, 'Bản nháp đã gửi hoặc hết hiệu lực. Hãy soạn lại bản nháp.')
+                elif not cache.add(lock, True, 300):
+                    form.add_error(None, 'Email đang được gửi hoặc đã gửi. Vui lòng kiểm tra trước khi thử lại.')
+                else:
+                    try:
+                        count = EmailMessage(subject=form.cleaned_data['subject'],
+                            body=form.cleaned_data['body'], from_email=settings.DEFAULT_FROM_EMAIL,
+                            to=[form.cleaned_data['recipient']]).send(fail_silently=False)
+                        if count != 1:
+                            raise OSError('No message accepted')
+                    except (smtplib.SMTPException, OSError, ValueError):
+                        cache.delete(lock)
+                        form.add_error(None, 'Chưa xác nhận gửi email thành công. Kiểm tra SMTP và hộp thư trước khi thử lại.')
+                    else:
+                        request.session.pop(draft_key, None)
+                        AuditEvent.objects.create(actor=request.user.username,
+                            action='notification_email_sent',
+                            detail=f'Hợp đồng {contract.code}; khoản thu {payment.pk if payment else "gia hạn"}; gửi đến {form.cleaned_data["recipient"]}')
+                        messages.success(request, 'Máy chủ email đã tiếp nhận thông báo. Bạn có thể kiểm tra thư đã gửi và hộp thư người nhận.')
+                        url = reverse('ai_assistant:notification', args=[contract.pk])
+                        if payment:
+                            url += f'?payment={payment.pk}'
+                        return redirect(url)
+        else:
+            try:
+                throttle(request.user)
+                result = generate_notification(contract, payment)
+                token = secrets.token_urlsafe(32)
+                request.session[draft_key] = token
+                context['email_form'] = NotificationEmailForm(initial={
+                    'recipient': contract.tenant.email, 'subject': result['subject'],
+                    'body': result['body'], 'draft_token': token,
+                })
+            except AIError as exc:
+                context["error"] = str(exc)
     return render(request, "ai_assistant/notification.html", context)
 
 
