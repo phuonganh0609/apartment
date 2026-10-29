@@ -17,7 +17,7 @@ def greeting_response(question):
     }
     if text in greetings:
         return {
-            "answer": "Xin chào! Mình là trợ lý Nestora. Mình có thể giúp bạn tra cứu quy định thuê căn hộ, thanh toán, tiền cọc và cách báo hỏng. Bạn muốn tìm hiểu điều gì?",
+            "answer": "Xin chào! Mình là trợ lý Nestora. Mình có thể tra cứu quy định, căn hộ còn trống, tiện ích trong căn, hợp đồng, công nợ và tiến độ bảo trì theo quyền của bạn. Bạn muốn tìm hiểu điều gì?",
             "sources": [],
         }
     return None
@@ -29,6 +29,10 @@ def answer_question(question, user=None):
     greeting = greeting_response(question)
     if greeting:
         return greeting
+    from .system_lookup import answer_system_question
+    system_result = answer_system_question(question, user)
+    if system_result is not None:
+        return system_result
     sources = retrieve(question, user=user)
     if not sources:
         return {"answer": NO_INFO, "sources": []}

@@ -138,6 +138,12 @@ Không có model/khóa API thì giao diện hiển thị AI chưa cấu hình, k
 
 RAG hiện dùng tìm kiếm từ khóa tiếng Việt bỏ dấu, chia đoạn có chồng lấn; không cần vector database. Đây là lựa chọn gọn cho dữ liệu đồ án, chưa tối ưu cho kho tài liệu rất lớn. PDF ảnh quét cần OCR bên ngoài trước khi tải lên.
 
+Chatbot cũng tra cứu trực tiếp dữ liệu căn hộ còn trống, thiết bị trong căn, hợp đồng,
+thanh toán/công nợ và bảo trì qua các hàm ORM chỉ đọc, có lọc quyền theo tài khoản.
+Ví dụ: “Có căn hộ nào còn trống dưới 8 triệu?”, “Hợp đồng của tôi hết hạn ngày nào?”,
+“Tháng này tôi còn nợ bao nhiêu?”. Kết quả gắn nguồn hệ thống và thời điểm truy vấn;
+không gửi dữ liệu nghiệp vụ này tới model AI. Xem [hướng dẫn và giới hạn](docs/chatbot_system_lookup.md).
+
 ## Quy tắc nghiệp vụ đã chọn
 
 Chi tiết tại [docs/decisions.md](docs/decisions.md). Các điểm Word chưa chốt được triển khai rõ ràng:
